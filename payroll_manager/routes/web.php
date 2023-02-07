@@ -19,47 +19,47 @@ use App\Models\Listing;
 
 
  Route::get('/', function () {
-     return view('welcome');
+     return view('dashboard');
 });
 
-Route::get('/listings',function(){
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => Listing::all()
-    ]);
-});
+// Route::get('/listings',function(){
+//     return view('listings', [
+//         'heading' => 'Latest Listings',
+//         'listings' => Listing::all()
+//     ]);
+// });
 
-Route::get('/hello', function(){
-    return response('<h1>Hello There</h1>',200)
-    ->header('Content-Type','text/html')
-    ->header('foo','Hello');
-});
+// Route::get('/hello', function(){
+//     return response('<h1>Hello There</h1>',200)
+//     ->header('Content-Type','text/html')
+//     ->header('foo','Hello');
+// });
 
-Route::get('/post/{id}', function($id){
-    // dd($id);
-    return response('Post ' . $id );
-})->where('id', '[0-9]+');
+// Route::get('/post/{id}', function($id){
+//     // dd($id);
+//     return response('Post ' . $id );
+// })->where('id', '[0-9]+');
 
-Route::get('/search', function(Request $request){
-    return $request->name.' '. $request->pass;
-});  
+// Route::get('/search', function(Request $request){
+//     return $request->name.' '. $request->pass;
+// });  
 
-//single 
+// //single 
 
-Route::get('/listings/{id}', function($id){
-    return view('listing',[
-        'listing' => Listing::find($id)
-    ]);
+// Route::get('/listings/{id}', function($id){
+//     return view('listing',[
+//         'listing' => Listing::find($id)
+//     ]);
 
-});
+// });
 
-Route::get('/department', function () {
-    return view('department', [
-        'department' => Department::all()
-    ]);
-});
-Route::get('/attendance',function(){
-    return view('attendance',[
-        'attendance' => 'Hello',
-    ]);
-});
+// Route::get('/department', function () {
+//     return view('department', [
+//         'department' => Department::all()
+//     ]);
+// });
+// Route::get('/attendance',function(){
+//     return view('attendance',[
+//         'attendance' => 'Hello',
+//     ]);
+// });
