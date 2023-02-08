@@ -22,7 +22,7 @@
                       <a href="add_department.html">Add Department</a>
                    </li>
                    <li>
-                      <a href="manage_department.html">Manage Department</a>
+                      <a href="departments">Manage Department</a>
                    </li>
                 </ul>
              </li>

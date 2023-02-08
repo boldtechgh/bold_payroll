@@ -1,9 +1,10 @@
 <?php
 
-use App\Models\Department;
-use Illuminate\Support\Facades\Route;
-use Illuminate\http\Request;
 use App\Models\Listing;
+use App\Models\Department;
+use Illuminate\http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DepartmentController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -21,6 +22,9 @@ use App\Models\Listing;
  Route::get('/', function () {
      return view('dashboard');
 });
+
+
+Route::get('/departments', [DepartmentController::class, 'index']);
 
 // Route::get('/listings',function(){
 //     return view('listings', [
