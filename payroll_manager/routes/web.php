@@ -53,7 +53,7 @@ use App\Models\Listing;
 
 // });
 
-// Route::get('/department', function () {
+// =Route::get('/department', function () {
 //     return view('department', [
 //         'department' => Department::all()
 //     ]);
