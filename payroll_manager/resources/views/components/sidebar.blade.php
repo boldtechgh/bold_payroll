@@ -19,10 +19,10 @@
                 </a>
                 <ul class="submenu ">
                    <li>
-                      <a href="add_department.html">Add Department</a>
+                      <a href="/departments/create">Add Department</a>
                    </li>
                    <li>
-                      <a href="manage_department.html">Manage Department</a>
+                      <a href="/departments">Manage Department</a>
                    </li>
                 </ul>
              </li>
@@ -80,7 +80,7 @@
                     <a href="attendance">Add Allowance</a>
                   </li>
                   <li>
-                    <a href="view_attendance">View Allowances</a>
+                    <a href="/allowances">View Allowances</a>
                   </li>
                 </ul>
               </li>

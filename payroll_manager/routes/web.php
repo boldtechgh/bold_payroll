@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepartmentController;
 use App\Models\Department;
 use Illuminate\Support\Facades\Route;
 use Illuminate\http\Request;
@@ -20,6 +21,14 @@ use App\Models\Listing;
 
  Route::get('/', function () {
      return view('dashboard');
+});
+
+
+Route::get('/departments', [DepartmentController::class, 'index']);
+Route::get('/departments/create', [DepartmentController::class, 'create']);
+
+Route::get('/allowances', function () {
+    return view('allowances.index');
 });
 
 // Route::get('/listings',function(){
