@@ -23,9 +23,14 @@ use App\Models\Listing;
      return view('dashboard');
 });
 
-
+//all departments
 Route::get('/departments', [DepartmentController::class, 'index']);
+
+// Show create department form
 Route::get('/departments/create', [DepartmentController::class, 'create']);
+
+// Store department data
+Route::post('/departments', [DepartmentController::class, 'store']);
 
 Route::get('/allowances', function () {
     return view('allowances.index');
