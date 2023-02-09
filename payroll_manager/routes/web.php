@@ -32,6 +32,8 @@ Route::get('/departments/create', [DepartmentController::class, 'create']);
 // Store department data
 Route::post('/departments', [DepartmentController::class, 'store']);
 
+
+
 //all designations
 Route::get('/designations', [DesignationController::class, 'index']);
 
@@ -40,6 +42,8 @@ Route::get('/designations/create', [DesignationController::class, 'create']);
 
 // Store designation data
 Route::post('/designations', [DesignationController::class, 'store']);
+
+
 
 Route::get('/allowances', function () {
     return view('allowances.index');
