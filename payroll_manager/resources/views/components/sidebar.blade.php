@@ -19,7 +19,7 @@
                 </a>
                 <ul class="submenu ">
                    <li>
-                      <a href="/create-department">Add Department</a>
+                      <a href="/departments/create">Add Department</a>
                    </li>
                    <li>
                       <a href="/departments">Manage Department</a>
@@ -33,7 +33,7 @@
                 </a>
                 <ul class="submenu ">
                    <li>
-                      <a href="/create-designation">Add Designation</a>
+                      <a href="/designations/create">Add Designation</a>
                    </li>
                    <li>
                       <a href="/designations">Manage Designation</a>
