@@ -6,12 +6,12 @@
       <title>Payroll Manager</title>
       <link rel="stylesheet" href="assets/css/bootstrap.css">
       <script defer src="assets/fontawesome/js/all.min.js"></script>
+
+      <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+
       <link rel="stylesheet" href="assets/vendors/chartjs/Chart.min.css">
       <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
       <link rel="stylesheet" href="assets/css/app.css">
-      <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
-
-  
       <style type="text/css">
         .notif:hover{
           background-color: rgba(0,0,0,0.1);
@@ -24,16 +24,13 @@
         @include('components.sidebar')
         <div id="main">
           @include('components.navbar')
-          <main>  
-            {{$slot}}
-          </main>
+          {{$slot}}
         </div>
       </div>
 
-    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/js/vendors.js"></script>
+      <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+      <script src="assets/js/vendors.js"></script>
 
-    <script src="assets/js/main.js"></script>
       <script src="assets/js/feather-icons/feather.min.js"></script>
       <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
       <script src="assets/js/app.js"></script>

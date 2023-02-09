@@ -1,10 +1,10 @@
 <?php
 
-use App\Models\Listing;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DesignationController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -25,6 +25,15 @@ use App\Http\Controllers\DepartmentController;
 
 
 Route::get('/departments', [DepartmentController::class, 'index']);
+Route::get('/create-department', [DepartmentController::class, 'create']);
+Route::get('/designations', [DesignationController::class, 'index']);
+Route::get('/create-designation', [DesignationController::class, 'create']);
+
+
+
+Route::get('/allowances', function () {
+    return view('allowances.index');
+});
 
 // Route::get('/listings',function(){
 //     return view('listings', [

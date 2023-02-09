@@ -1,8 +1,8 @@
 <div id="sidebar" class='active'>
     <div class="sidebar-wrapper active">
        <div class="sidebar-header" style="height: 50px;margin-top: -30px">
-              <i class="fa fa-users text-success me-4"></i>
-                <span>ELMS</span>
+              {{-- <i class="fa fa-users text-success me-4"></i> --}}
+                <span>PAYROLL</span>
         </div>
        <div class="sidebar-menu">
           <ul class="menu">
@@ -19,10 +19,10 @@
                 </a>
                 <ul class="submenu ">
                    <li>
-                      <a href="add_department.html">Add Department</a>
+                      <a href="/create-department">Add Department</a>
                    </li>
                    <li>
-                      <a href="departments">Manage Department</a>
+                      <a href="/departments">Manage Department</a>
                    </li>
                 </ul>
              </li>
@@ -33,10 +33,10 @@
                 </a>
                 <ul class="submenu ">
                    <li>
-                      <a href="add_designation.html">Add Designation</a>
+                      <a href="/create-designation">Add Designation</a>
                    </li>
                    <li>
-                      <a href="manage_designation.html">Manage Designation</a>
+                      <a href="/designations">Manage Designation</a>
                    </li>
                 </ul>
              </li>
@@ -80,7 +80,7 @@
                     <a href="attendance">Add Allowance</a>
                   </li>
                   <li>
-                    <a href="view_attendance">View Allowances</a>
+                    <a href="/allowances">View Allowances</a>
                   </li>
                 </ul>
               </li>

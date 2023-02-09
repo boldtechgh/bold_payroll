@@ -13,4 +13,7 @@ class DepartmentController extends Controller
             'departments' => Department::latest()->get()
        ]);
     }
+    public function create(){
+        return view('departments.create');
+    }
 }
