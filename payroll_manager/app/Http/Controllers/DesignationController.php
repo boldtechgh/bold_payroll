@@ -17,12 +17,14 @@ class DesignationController extends Controller
        ]);
     }
 
+    // Show create designation form
     public function create(){
         return view('designations.create',['departments' => Department::latest()->get()]);
     }
 
-    public function show(){
-        return view('designations.show',['designations' => Designation::latest()->get()]);
+    // Show single designation
+    public function edit(Designation $designation){
+        return view('designations.edit',['designation' => $designation, 'departments' => Department::latest()->get()]);
     }
 
     // Store designation data
@@ -38,4 +40,31 @@ class DesignationController extends Controller
 
         return redirect('/designations')->with('message','Designation Added Sucess!');
     }
+
+    // Update designation data
+    public function update(Request $request, $id){
+        // dd($request->all());
+        $formFields = $request->validate([
+            'designation_name' => 'required',
+            'department_id' => 'required'
+        ]);
+
+        $designation = Designation::find($id);
+
+        // Getting values from the blade template form
+        $designation->designation_name =  $request->get('designation_name');
+        $designation->department_id = $request->get('department_id');
+        $designation->save();
+        
+
+        return back()->with('message','Designation Updated Sucessfully!');
+    }
+
+    public function destroy($id)
+    {
+        $designation = Designation::find($id);
+        $designation->delete();
+ 
+        return redirect('/designations')->with('success', 'Designation removed.');
+    } 
 }

@@ -8,7 +8,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class='breadcrumb-header'>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html" class="text-success">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/designations" class="text-success">Designations</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Edit Designation</li>
                     </ol>
                 </nav>
@@ -25,15 +25,16 @@
         <div class="card">
             <div class="card-content">
             <div class="card-body">
-                <form class="form form-vertical" method="POST" action="/designations">
+                <form class="form form-vertical" method="POST" action="/designations/{{$designation->id}}">
                     @csrf
+                    @method('PUT')
                 <div class="form-body">
                     <div class="row">
                     <div class="col-12">
                         <div class="form-group has-icon-left">
                             <label for="first-name-icon">Designation Name</label>
                             <div class="position-relative">
-                                <input type="text" class="form-control" placeholder="Input Designation" id="designation_name" name="designation_name" value="{{old('designation_name')}}">
+                                <input type="text" class="form-control" placeholder="Input Designation" id="designation_name" name="designation_name" value="{{$designation->designation_name}}">
                                 <div class="form-control-icon">
                                     <i class="fa fa-table"></i>
                                 </div>
@@ -47,11 +48,16 @@
                         <div class="form-group has-icon-left">
                             <label for="email-id-icon">Department</label>
                             <div class="position-relative">
-                                {{-- <input type="text" class="form-control" placeholder="Input Description" id="email-id-icon"> --}}
-                                <select name="department_id" id="department_id" value="{{old('department_id')}}" class="form-control">
-                                    <option value="">Select Department</option>
+                                <select name="department_id" id="department_id" class="form-control">
+
+                                    @foreach($departments as $department)
+                                        @if ($department->id == $designation->department_id)
+                                            <option value={{$department->id}}>{{$department->department_name}}</option>
+                                        @endif
+                                    @endforeach
+                                 
                                     @foreach ($departments as $department)
-                                    <option value={{$department->id}}>{{$department->department_name}}</option>
+                                        <option value={{$department->id}}>{{$department->department_name}}</option>
                                     @endforeach
                                 </select>
                                 <div class="form-control-icon">

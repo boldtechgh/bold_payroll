@@ -43,6 +43,16 @@ Route::get('/designations/create', [DesignationController::class, 'create']);
 // Store designation data
 Route::post('/designations', [DesignationController::class, 'store']);
 
+// single designation
+Route::get('/designations/{designation}/edit', [DesignationController::class, 'edit']);
+
+// Update designation data
+Route::put('/designations/{designation}', [DesignationController::class, 'update']);
+
+//Delete designation
+Route::delete('/designations/{designation}', [DesignationController::class, 'destroy']);
+
+
 
 
 Route::get('/allowances', function () {
