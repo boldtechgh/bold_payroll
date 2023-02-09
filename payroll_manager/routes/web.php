@@ -23,13 +23,14 @@ use App\Http\Controllers\DesignationController;
      return view('dashboard');
 });
 
-
+//all departments
 Route::get('/departments', [DepartmentController::class, 'index']);
-Route::get('/create-department', [DepartmentController::class, 'create']);
-Route::get('/designations', [DesignationController::class, 'index']);
-Route::get('/create-designation', [DesignationController::class, 'create']);
 
+// Show create department form
+Route::get('/departments/create', [DepartmentController::class, 'create']);
 
+// Store department data
+Route::post('/departments', [DepartmentController::class, 'store']);
 
 Route::get('/allowances', function () {
     return view('allowances.index');
