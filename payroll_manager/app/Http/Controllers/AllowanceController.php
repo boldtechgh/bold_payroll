@@ -61,8 +61,8 @@ class AllowanceController extends Controller
     }
     public function destroy($id)
     {
-        $designation = Allowance::find($id);
-        $designation->delete();
+        $allowance = Allowance::find($id);
+        $allowance->delete();
  
         return redirect('/allowances')->with('success', 'Allowance removed.');
     } 
