@@ -75,7 +75,7 @@ Route::post('/allowances', [AllowanceController::class, 'store']);
 Route::get('/allowances/{allowance}/edit', [AllowanceController::class, 'edit']);
 
 // Update department data
-Route::put('/allowances/{allowance}', [AllowanceController::class, 'destroy']);
+Route::delete('/allowances/{allowance}', [AllowanceController::class, 'destroy']);
 
 // Route::get('/listings',function(){
 //     return view('listings', [

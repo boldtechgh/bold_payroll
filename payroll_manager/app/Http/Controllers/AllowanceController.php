@@ -56,5 +56,11 @@ class AllowanceController extends Controller
 
         return back()->with('message','Allowance Updated Sucessfully!');
     }
-    
+    public function destroy($id)
+    {
+        $designation = Allowance::find($id);
+        $designation->delete();
+ 
+        return redirect('/allowances')->with('success', 'Allowance removed.');
+    } 
 }
