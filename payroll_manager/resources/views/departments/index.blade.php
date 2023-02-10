@@ -34,7 +34,13 @@
                             <td>{{$department->department_name}}</td>
                             <td>{{$department->department_short_name}}</td>
                             <td>{{$department->created_at}}</td>
-                            <td><a href="/departments/{$department->id}"><i class="fa fa-pen text-success"></i></a>   <a href="#"><i class="fa fa-trash text-danger"></i></a></td>
+                            <td><a href="/department/{{$department->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
+                                <form action="/departments/{{$department->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                <a href="/departments/{{$department->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a>
+                            </form>
+                            </td> 
                         </tr>
                         @endforeach
                         @else

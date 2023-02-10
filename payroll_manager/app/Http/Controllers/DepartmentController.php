@@ -33,4 +33,28 @@ class DepartmentController extends Controller
 
         return redirect('/departments')->with('message','Department Add Sucess!');
     }
+    
+
+        // Show single department
+        public function edit(Department $department){
+            return view('departments.edit',['department' => $department]);
+        }
+     // Update designation data
+     public function update(Request $request, $id){
+        // dd($request->all());
+        $formFields = $request->validate([
+            'department_name' =>  'required',
+            'department_short_name' => 'required'
+        ]);
+
+        $department = Department::find($id);
+
+        // Getting values from the blade template form
+        $department->department_name =  $request->get('department_name');
+        $department->department_short_name = $request->get('department_short_name');
+        $department->save();
+        
+
+        return back()->with('message','Department Updated Sucessfully!');
+    }
 }

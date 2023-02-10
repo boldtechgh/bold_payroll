@@ -49,7 +49,7 @@
                             <div class="position-relative">
                                 {{-- <input type="text" class="form-control" placeholder="Input Description" id="email-id-icon"> --}}
                                 <select name="department_id" id="department_id" value="{{old('department_id')}}" class="form-control">
-                                    <option value="">Select Department</option>
+                                    <option value="" disabled>Select Department</option>
                                     @foreach ($departments as $department)
                                     <option value={{$department->id}}>{{$department->department_name}}</option>
                                     @endforeach

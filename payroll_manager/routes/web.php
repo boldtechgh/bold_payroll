@@ -32,6 +32,12 @@ Route::get('/departments/create', [DepartmentController::class, 'create']);
 // Store department data
 Route::post('/departments', [DepartmentController::class, 'store']);
 
+// single departments
+Route::get('/department/{department}/edit', [DepartmentController::class, 'edit']);
+
+// Update department data
+Route::put('/departments/{department}', [DepartmentController::class, 'update']);
+
 
 
 //all designations
@@ -48,6 +54,7 @@ Route::get('/designations/{designation}/edit', [DesignationController::class, 'e
 
 // Update designation data
 Route::put('/designations/{designation}', [DesignationController::class, 'update']);
+
 
 //Delete designation
 Route::delete('/designations/{designation}', [DesignationController::class, 'destroy']);

@@ -37,7 +37,13 @@
                                             @endif
                                         @endforeach
                                         <td>{{$designation->created_at}}</td>
-                                        <td><a href="/designations/{{$designation->id}}/edit"><i class="fa fa-pen text-success"></i></a>   <a href="/designations/{{$designation->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a></td>
+                                        <td><a href="/designations/{{$designation->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
+                                            <form action="/designations/{{$designation->id}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                            <a href="/designations/{{$designation->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a>
+                                        </form>
+                                        </td>
                                         @method('DELETE')
                                     </tr>
                                     @endforeach
