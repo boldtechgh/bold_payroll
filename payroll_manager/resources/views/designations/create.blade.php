@@ -45,17 +45,16 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group has-icon-left">
-                            <label for="email-id-icon">Department</label>
+                            <label for="department_id">Department</label>
                             <div class="position-relative">
-                                {{-- <input type="text" class="form-control" placeholder="Input Description" id="email-id-icon"> --}}
                                 <select name="department_id" id="department_id" value="{{old('department_id')}}" class="form-control">
-                                    <option value="" disabled>Select Department</option>
+                                    <option value="">Select Department</option>
                                     @foreach ($departments as $department)
                                     <option value={{$department->id}}>{{$department->department_name}}</option>
                                     @endforeach
                                 </select>
                                 <div class="form-control-icon">
-                                    <i class="fa fa-table"></i>
+                                    <i class="fa fa-building"></i>
                                 </div>
                             </div>
                         </div>

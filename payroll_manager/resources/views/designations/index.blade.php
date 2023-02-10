@@ -37,14 +37,21 @@
                                             @endif
                                         @endforeach
                                         <td>{{$designation->created_at}}</td>
-                                        <td><a href="/designations/{{$designation->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
-                                            <form action="/designations/{{$designation->id}}" method="POST">
+                                        <td>
+                                            <div class="action-btns">
+                                                <a href="/designations/{{$designation->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
+                                            {{-- <form action="/designations/{{$designation->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                            <a href="/designations/{{$designation->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a>
-                                        </form>
+                                            <a type="submit" href="/designations/{{$designation->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a>
+                                            <button type="submit" class="btn btn-primary me-1 mb-1">Delete</button>
+                                            
+                                            
+                                        </form> --}}
+                                        </div>
+                                        {{-- <a href="" onclick="deleteDesignation();"><i class="fa fa-trash text-danger"></i></a> --}}
+                                        <button type="submit" onclick="if(confirm('Are you sure you want to delete this Designation?')) window.location.href = '/designations/{{$designation->id}}';">Delete</button>
                                         </td>
-                                        @method('DELETE')
                                     </tr>
                                     @endforeach
                                     
@@ -55,4 +62,15 @@
 
                 </section>
             </div>
+            {{-- <script>
+                fuction deleteDesignation() {
+                   
+                     var result = confirm("Are you sure you want to delete this record?");
+
+                    if (result) {
+                        window.location.href = "{{ route('designation.delete', $designation->id) }}";
+                    }
+                    }
+                }
+            </script> --}}
 </x-layout>
