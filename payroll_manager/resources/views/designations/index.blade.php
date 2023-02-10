@@ -40,17 +40,17 @@
                                         <td>
                                             <div class="action-btns">
                                                 <a href="/designations/{{$designation->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
-                                            {{-- <form action="/designations/{{$designation->id}}" method="POST">
+                                            <form action="/designations/{{$designation->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                            <a type="submit" href="/designations/{{$designation->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a>
-                                            <button type="submit" class="btn btn-primary me-1 mb-1">Delete</button>
+                                            {{-- <a type="submit" href="/designations/{{$designation->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a> --}}
+                                            {{-- <button type="submit" class="btn btn-primary me-1 mb-1">Delete</button> --}}
+                                            &nbsp;
+                                            <button type="submit" class=" me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash text-danger"></i></button>
                                             
-                                            
-                                        </form> --}}
+                                        </form>
                                         </div>
                                         {{-- <a href="" onclick="deleteDesignation();"><i class="fa fa-trash text-danger"></i></a> --}}
-                                        <button type="submit" onclick="if(confirm('Are you sure you want to delete this Designation?')) window.location.href = '/designations/{{$designation->id}}';">Delete</button>
                                         </td>
                                     </tr>
                                     @endforeach
