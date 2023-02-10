@@ -72,6 +72,11 @@
 
                     <div class="col-12 d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary me-1 mb-1">Update</button>
+                        <form method="POST" action="/departments/{{$department->id}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger me-1 mb-1">Delete</button>
+                        </form>
                     </div>
                     </div>
                 </div>
