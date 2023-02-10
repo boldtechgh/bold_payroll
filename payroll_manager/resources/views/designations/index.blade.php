@@ -41,7 +41,7 @@
                                             <form action="/designations/{{$designation->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                            <a href="/designations/{{$designation->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a>
+                                            <a href="/designations/{{$designation->id}}/edit" data-method="delete"><i class="fa fa-trash text-danger"></i></a>
                                         </form>
                                         </td>
                                         @method('DELETE')
