@@ -7,7 +7,7 @@
        <div class="sidebar-menu">
           <ul class="menu">
              <li class="sidebar-item active ">
-                <a href="index.html" class='sidebar-link'>
+                <a href="/" class='sidebar-link'>
                 <i class="fa fa-home text-success"></i>
                 <span>Dashboard</span>
                 </a>
@@ -92,10 +92,10 @@
                 </a>
                 <ul class="submenu">
                   <li>
-                    <a href="attendance">Add Deduction</a>
+                    <a href="/deductions/create">Add Deduction</a>
                   </li>
                   <li>
-                    <a href="view_attendance">Manage Deductions</a>
+                    <a href="/deductions">Manage Deductions</a>
                   </li>
                 </ul>
               </li>

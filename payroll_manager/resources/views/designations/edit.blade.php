@@ -71,12 +71,13 @@
                     </div>
 
                     <div class="col-12 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary me-1 mb-1">Update</button>
-                        <form method="POST" action="/departments/{{$department->id}}">
+                        <button type="submit" class="btn btn-success me-1 mb-1">Update</button>
+                        <form action="/designations/{{$designation->id}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger me-1 mb-1">Delete</button>
-                        </form>
+                            &nbsp;
+                            <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')">Delete</button>
+                        </form>                                                            
                     </div>
                     </div>
                 </div>

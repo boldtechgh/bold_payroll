@@ -3,13 +3,13 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Manage Designation</h3>
+                            <h3>Manage Deductions</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class='breadcrumb-header'>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/" class="text-success">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Manage Designation</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Manage Deductions</li>
                                 </ol>
                             </nav>
                         </div>
@@ -21,44 +21,39 @@
                             <table class='table' id="table1">
                                 <thead>
                                     <tr>
-                                        <th>Designation Name</th>
-                                        <th>Department</th>
+                                        <th>Deduction Name</th>
+                                        <th>Deduction Amount</th>
+                                        <th>description</th>
                                         <th>Creation Date</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($designations as $designation)
+                                     @unless(count($deductions) == 0)
+                                     @foreach ($deductions as $deduction)
                                     <tr>
-                                        <td>{{$designation->designation_name}}</td>
-                                        @foreach ($departments as $department)
-                                            @if ($designation->department_id == $department->id)
-                                                <td>{{$department->department_name}}</td>
-                                            @endif
-                                        @endforeach
-                                        <td>{{$designation->created_at}}</td>
-                                        <td class="d-flex">
-                                                <a type="button" class="btn btn-info me-1 mb-1" href="/designations/{{$designation->id}}/edit"><i class="fa fa-pen"></i></a>   
-                                            <form action="/designations/{{$designation->id}}" method="POST">
+                                        <td>{{$deduction->deduction_name}}</td>
+                                        <td>{{$deduction->deduction_amount}}</td>
+                                        <td>{{$deduction->deduction_description}}</td>
+                                        <td>{{$deduction->created_at}}</td>
+                                        <td><a href="/deductions/{{$deduction->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
+                                            <form action="/deductions/{{$deduction->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-<<<<<<< HEAD
-                                            {{-- <a type="submit" href="/designations/{{$designation->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a> --}}
+                                                {{-- <a type="submit" href="/deductions/{{$deduction->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a> --}}
                                             {{-- <button type="submit" class="btn btn-primary me-1 mb-1">Delete</button> --}}
                                             &nbsp;
                                             <button type="submit" class=" me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash text-danger"></i></button>
-                                            
                                         </form>
                                         </div>
-=======
-                                                &nbsp;
-                                                <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
-                                            </form>
->>>>>>> 0c9e403889409af5ecb0f93e320682cbb25e48ce
                                         </td>
                                     </tr>
                                     @endforeach
-                                    
+                                    @else
+                                    <tr>
+                                        <td colspan="4"><p class="text-center">No Deduction found</p></td>
+                                    </tr>
+                                    @endunless
                                 </tbody>
                             </table>
                         </div>

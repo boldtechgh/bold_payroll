@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllowanceController;
+use App\Http\Controllers\DeductionController;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
@@ -78,6 +79,26 @@ Route::get('/allowances/{allowance}/edit', [AllowanceController::class, 'edit'])
 Route::put('/allowances/{allowance}', [AllowanceController::class, 'update']);
 // Delete allowance data
 Route::delete('/allowances/{allowance}', [AllowanceController::class, 'destroy']);
+
+    //DEDUCTIONS ROUTE
+
+//all deductions
+Route::get('/deductions', [DeductionController::class, 'index']);
+
+// Show create deductions form
+Route::get('/deductions/create', [DeductionController::class, 'create']);
+
+// Store deductions data
+Route::post('/deductions', [DeductionController::class, 'store']);
+
+// single deductions
+Route::get('/deductions/{deduction}/edit', [DeductionController::class, 'edit']);
+
+// Update deductions data
+Route::put('/deductions/{deduction}', [DeductionController::class, 'update']);
+// Delete deductions data
+Route::delete('/deductions/{deduction}', [DeductionController::class, 'destroy']);
+
 
 // Route::get('/listings',function(){
 //     return view('listings', [
