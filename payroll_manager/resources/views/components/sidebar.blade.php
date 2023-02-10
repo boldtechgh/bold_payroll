@@ -77,10 +77,10 @@
                 </a>
                 <ul class="submenu">
                   <li>
-                    <a href="attendance">Add Allowance</a>
+                  <a href="/allowances/create">Add Allowance</a>
                   </li>
                   <li>
-                    <a href="/allowances">View Allowances</a>
+                  <a href="/allowances">Manage Allowance</a>
                   </li>
                 </ul>
               </li>
