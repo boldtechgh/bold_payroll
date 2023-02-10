@@ -24,6 +24,7 @@ class AllowanceController extends Controller
         // dd($request->all());
         $formFields = $request->validate([
             'allowance_name' => ['required', Rule::unique('allowances','allowance_name')],
+            'allowance_amount' => 'required',
             'allowance_description' => 'required'
         ]);
         Allowance::create($formFields);
@@ -43,6 +44,7 @@ class AllowanceController extends Controller
         // dd($request->all());
         $formFields = $request->validate([
             'allowance_name' =>  'required',
+            'allowance_amount' =>  'required',
             'allowance_description' => 'required'
         ]);
 
@@ -50,6 +52,7 @@ class AllowanceController extends Controller
 
         // Getting values from the blade template form
         $allowance->allowance_name =  $request->get('allowance_name');
+        $allowance->allowance_amount =  $request->get('allowance_amount');
         $allowance->allowance_description = $request->get('allowance_description');
         $allowance->save();
         

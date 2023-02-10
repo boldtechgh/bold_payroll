@@ -50,7 +50,6 @@
                                             
                                         </form>
                                         </div>
-                                        {{-- <a href="" onclick="deleteDesignation();"><i class="fa fa-trash text-danger"></i></a> --}}
                                         </td>
                                     </tr>
                                     @endforeach
