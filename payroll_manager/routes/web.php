@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllowanceController;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
@@ -61,10 +62,20 @@ Route::delete('/designations/{designation}', [DesignationController::class, 'des
 
 
 
+//all allowances
+Route::get('/allowances', [AllowanceController::class, 'index']);
 
-Route::get('/allowances', function () {
-    return view('allowances.index');
-});
+// Show create department form
+Route::get('/allowances/create', [AllowanceController::class, 'create']);
+
+// Store department data
+Route::post('/allowances', [AllowanceController::class, 'store']);
+
+// single allowances
+Route::get('/allowances/{allowance}/edit', [AllowanceController::class, 'edit']);
+
+// Update department data
+Route::put('/allowances/{allowance}', [AllowanceController::class, 'destroy']);
 
 // Route::get('/listings',function(){
 //     return view('listings', [

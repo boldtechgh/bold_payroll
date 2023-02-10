@@ -3,13 +3,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Add Allowance</h3>
+                    <h3>Edit Allowance</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class='breadcrumb-header'>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html" class="text-success">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Add Allowance</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Allowance</li>
                         </ol>
                     </nav>
                 </div>
@@ -25,8 +25,9 @@
             <div class="card">
                 <div class="card-content">
                 <div class="card-body">
-                    <form class="form form-vertical" method="POST" action="/allowances" >
+                    <form class="form form-vertical" method="POST" action="/allowances/{{$allowance->id}}" >
                         @csrf
+                    @method('PUT')
                     <div class="form-body">
                         <div class="row">
                         
@@ -34,7 +35,7 @@
                             <div class="form-group has-icon-left">
                                 <label for="email-id-icon">Allowance Name</label>
                                 <div class="position-relative">
-                                    <input type="text" class="form-control" placeholder="Allowance Name" id="email-id-icon" name="allowance_name" value="{{old('allowance_name')}}">
+                                    <input type="text" class="form-control" placeholder="Allowance Name" id="email-id-icon" name="allowance_name" value="{{$allowance->allowance_name}}">
                                     <div class="form-control-icon">
                                         <i class="fa fa-table"></i>
                                     </div>
@@ -48,7 +49,7 @@
                             <div class="form-group has-icon-left">
                                 <label for="first-name-icon">Allowance Description</label>
                                 <div class="position-relative">
-                                    <input type="text" class="form-control" placeholder="Allowance Description" id="first-name-icon" name="allowance_description" value="{{old('allowance_description')}}">
+                                    <input type="text" class="form-control" placeholder="Allowance Description" id="first-name-icon" name="allowance_description" value="{{$allowance->allowance_description}}">
                                     <div class="form-control-icon">
                                         <i class="fa fa-table"></i>
                                     </div>
