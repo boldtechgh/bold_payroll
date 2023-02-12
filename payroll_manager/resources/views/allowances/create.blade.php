@@ -44,6 +44,21 @@
                             <p class="text-danger text-mt-1">{{$message}}</p>
                             @enderror
                         </div>
+
+                        <div class="col-12">
+                            <div class="form-group has-icon-left">
+                                <label for="email-id-icon">Allowance Amount</label>
+                                <div class="position-relative">
+                                    <input type="text" class="form-control" placeholder="Allowance Amount" id="email-id-icon" name="allowance_amount" value="{{old('allowance_amount')}}">
+                                    <div class="form-control-icon">
+                                        <i class="fa fa-table"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('allowance_amount')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
+                        </div>
                         <div class="col-12">
                             <div class="form-group has-icon-left">
                                 <label for="first-name-icon">Allowance Description</label>

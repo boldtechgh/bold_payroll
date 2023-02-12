@@ -16,6 +16,7 @@ class CreateAllowancesTable extends Migration
         Schema::create('allowances', function (Blueprint $table) {
             $table->id();
             $table->string('allowance_name');
+            $table->float('allowance_amount');
             $table->string('allowance_description');
             $table->timestamps();
         });
