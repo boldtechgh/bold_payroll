@@ -150,12 +150,15 @@
                             @enderror
                                         </div>
                                         <div class="col-md-3 col-12">
+                                            
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Profile</label>
                                                 <div class="position-relative">
                                                     <img src="{{$employee->employee_profile ? asset('storage/'.$employee->employee_profile) : null}}" alt="" class="rounded-circle" style="width: 150px;"
                                                     alt="Avatar">
                                                     <input type="file" name="employee_profile"  class="form-control" placeholder="" id="first-name-icon">
+                                                    <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('getFile').click()">Your text here</button>
+  <input type='file' id="getFile" style="display:none">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
