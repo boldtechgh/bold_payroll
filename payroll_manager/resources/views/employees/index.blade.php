@@ -17,8 +17,8 @@
                         @unless(count($employees) == 0)
                         @foreach ($employees as $employee)
                         <tr>
-                            <td>{{$employee->first_name + $employee->first_name}}</td>
-                            <td>{{$employee->department_id}}</td>
+                            <td>{{$employee->first_name}}</td>
+                            <td>{{$employee->employee_id}}</td>
                             <td><span class="badge bg-success">{{$employee->status}}</span></td>
                             <td>{{$employee->created_at}}</td>
                             <td><a href="/employees/{{$employee->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
