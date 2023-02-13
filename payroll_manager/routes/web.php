@@ -118,8 +118,10 @@ Route::post('/employees', [EmployeeController::class, 'store']);
 Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit']);
 
 // Update employees data
-Route::put('/employees/{employee}', [EmployeeController::class, 'destroy']);
+Route::put('/employees/{employee}', [EmployeeController::class, 'update']);
 
+// Delete deductions data
+Route::delete('/deductions/{deduction}', [DeductionController::class, 'destroy']);
 // Route::get('/listings',function(){
 //     return view('listings', [
 //         'heading' => 'Latest Listings',
