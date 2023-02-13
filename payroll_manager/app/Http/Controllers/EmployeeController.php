@@ -27,7 +27,7 @@ class EmployeeController extends Controller
 
     // Store employee data
     public function store(Request $request){
-        // dd($request->all());
+       // dd($request->all());
         $formFields = $request->validate([
             'employee_id' => ['required', Rule::unique('employees','employee_id')],
             'first_name' => 'required',
@@ -58,7 +58,7 @@ class EmployeeController extends Controller
     public function update(Request $request, $id){
         // dd($request->all());
         $formFields = $request->validate([
-            'employee_id' => 'required',
+            'employee_id' => ['required', Rule::unique('employees','employee_id')],
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
@@ -72,6 +72,10 @@ class EmployeeController extends Controller
             'username' => 'required',
             'password' => 'required'
         ]);
+
+        if($request->hasFile('employee_profile')){
+            $formFields['employee_profile'] = $request->file('employee_profile')->store('employee_profiles', 'public');
+        }
 
         $employee = Employee::find($id);
 
