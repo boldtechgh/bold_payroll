@@ -121,6 +121,9 @@ Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit']);
 // Update employees data
 Route::put('/employees/{employee}', [EmployeeController::class, 'update']);
 
+// Delete deductions data
+Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy']);
+
 
 //Calendar Routes
 Route::get('calendar-event', [CalendarController::class, 'index']);
