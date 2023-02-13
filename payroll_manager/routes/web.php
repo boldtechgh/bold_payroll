@@ -119,7 +119,7 @@ Route::post('/employees', [EmployeeController::class, 'store']);
 Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit']);
 
 // Update employees data
-Route::put('/employees/{employee}', [EmployeeController::class, 'destroy']);
+Route::put('/employees/{employee}', [EmployeeController::class, 'update']);
 
 
 //Calendar Routes
