@@ -6,6 +6,7 @@ use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -38,6 +39,9 @@ Route::get('/department/{department}/edit', [DepartmentController::class, 'edit'
 
 // Update department data
 Route::put('/departments/{department}', [DepartmentController::class, 'update']);
+
+//Delete designation
+Route::delete('/departments/{department}', [DepartmentController::class, 'destroy']);
 
 
 
@@ -79,6 +83,21 @@ Route::put('/allowances/{allowance}', [AllowanceController::class, 'update']);
 // Delete allowance data
 Route::delete('/allowances/{allowance}', [AllowanceController::class, 'destroy']);
 
+
+//all employees
+Route::get('/employees', [EmployeeController::class, 'index']);
+
+// Show create employees form
+Route::get('/employees/create', [EmployeeController::class, 'create']);
+
+// Store employees data
+Route::post('/employees', [EmployeeController::class, 'store']);
+
+// single employees
+Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit']);
+
+// Update employees data
+Route::put('/employees/{employee}', [EmployeeController::class, 'destroy']);
 // Route::get('/listings',function(){
 //     return view('listings', [
 //         'heading' => 'Latest Listings',

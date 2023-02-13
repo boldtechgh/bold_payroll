@@ -57,4 +57,11 @@ class DepartmentController extends Controller
 
         return back()->with('message','Department Updated Sucessfully!');
     }
+
+    public function destroy($id){
+        $department = Department::find($id);
+        $department->delete();
+ 
+        return redirect('/departments')->with('success', 'Department removed.');
+    }
 }

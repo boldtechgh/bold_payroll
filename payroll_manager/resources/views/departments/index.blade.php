@@ -37,8 +37,9 @@
                             <td><a href="/department/{{$department->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
                                 <form action="/departments/{{$department->id}}" method="POST">
                                     @csrf
-                                    @method('DELETE')
-                                <a href="/departments/{{$department->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a>
+                                    @method('DELETE')   
+                                    <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
+                                    {{-- <a href="/departments/{{$department->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a> --}}
                             </form>
                             </td> 
                         </tr>

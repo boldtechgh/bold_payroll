@@ -48,10 +48,10 @@
                 </a>
                 <ul class="submenu ">
                    <li>
-                      <a href="add_employee.html">Add Employee</a>
+                      <a href="/employees/create">Add Employee</a>
                    </li>
                    <li>
-                      <a href="manage_employee.html">Manage Employee</a>
+                      <a href="/employees">Manage Employee</a>
                    </li>
                 </ul>
              </li>
