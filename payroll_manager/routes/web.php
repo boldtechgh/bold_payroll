@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\AllowanceController;
-use App\Http\Controllers\DeductionController;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AllowanceController;
+use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
-use App\Http\Controllers\EmployeeController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -120,8 +121,12 @@ Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit']);
 // Update employees data
 Route::put('/employees/{employee}', [EmployeeController::class, 'update']);
 
-// Delete deductions data
-Route::delete('/deductions/{deduction}', [DeductionController::class, 'destroy']);
+
+//Calendar Routes
+Route::get('calendar-event', [CalendarController::class, 'index']);
+
+Route::post('calendar-crud-ajax', [CalendarController::class, 'calendarEvents']);
+
 // Route::get('/listings',function(){
 //     return view('listings', [
 //         'heading' => 'Latest Listings',
