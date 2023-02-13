@@ -59,6 +59,7 @@ class AllowanceController extends Controller
 
         return back()->with('message','Allowance Updated Sucessfully!');
     }
+    
     public function destroy($id)
     {
         $allowance = Allowance::find($id);
