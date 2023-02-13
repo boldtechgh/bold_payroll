@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateEmployeesTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations.S
      *
      * @return void
      */
@@ -15,12 +15,19 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->date('dateOfBirth');
+            $table->string('employee_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('middle_name');
+            $table->string('employee_profile')->nullable();
+            $table->string('username');
+            $table->string('password');
+            $table->string('gender');
+            $table->integer('designation_id');
+            $table->integer('department_id');
+            $table->date('date_of_birth');
             $table->string('email');
             $table->string('contact');
-            $table->string('position');
             $table->float('salary');
             $table->timestamps();
         });
