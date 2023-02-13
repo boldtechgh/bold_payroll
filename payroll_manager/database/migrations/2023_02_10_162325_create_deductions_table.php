@@ -15,8 +15,10 @@ class CreateDeductionsTable extends Migration
     {
         Schema::create('deductions', function (Blueprint $table) {
             $table->id();
-            $table->float('deduction');
-            $table->string('description');
+            $table->string('deduction_name');
+            $table->float('deduction_amount');
+            $table->string('deduction_description');
+            $table->timestamps();
         });
     }
 
