@@ -43,9 +43,9 @@ class DeductionController extends Controller
      public function update(Request $request, $id){
         // dd($request->all());
         $formFields = $request->validate([
-            'allowance_name' =>  'required',
-            'allowance_amount' =>  'required',
-            'allowance_description' => 'required'
+            'deduction_name' =>  'required',
+            'deduction_amount' =>  'required',
+            'deduction_description' => 'required'
         ]);
 
         $deduction = Deduction::find($id);
@@ -54,7 +54,7 @@ class DeductionController extends Controller
         $deduction->deduction_name =  $request->get('deduction_name');
         $deduction->deduction_amount =  $request->get('deduction_amount');
         $deduction->deduction_description = $request->get('deduction_description');
-        $deduction->save();
+        $deduction->update($formFields);
         
 
         return back()->with('message','Deduction Updated Sucessfully!');
