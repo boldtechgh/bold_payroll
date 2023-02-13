@@ -32,7 +32,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">ID Number</label>
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control" name="employee_id" placeholder="id number" id="first-name-icon" name="employee_id">
+                                                    <input type="text" class="form-control" name="employee_id" placeholder="id number" id="first-name-icon" name="employee_id" value="{{old('designation_name')}}" >
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-hash"></i>
                                                     </div>
@@ -46,7 +46,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">First Name</label>
                                                 <div class="position-relative">
-                                                    <input type="text" name="first_name" class="form-control" placeholder="first name" id="first-name-icon">
+                                                    <input type="text" name="first_name" value="{{old('first_name')}}" class="form-control" placeholder="first name" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
@@ -60,7 +60,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Middle Name</label>
                                                 <div class="position-relative">
-                                                    <input type="text" name="middle_name" class="form-control" placeholder="middle name" id="first-name-icon">
+                                                    <input type="text" name="middle_name" value="{{old('middle_name')}}" class="form-control" placeholder="middle name" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
@@ -74,7 +74,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Last Name</label>
                                                 <div class="position-relative">
-                                                    <input type="text" name="last_name" class="form-control" placeholder="last name" id="first-name-icon">
+                                                    <input type="text" name="last_name" value="{{old('last_name')}}" class="form-control" placeholder="last name" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
@@ -92,7 +92,7 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" name="gender" id="basicSelect">
                                                             <option value="Male">Male</option>
-                                                            <option>Female</option>
+                                                            <option value="Female">Female</option>
                                                         </select>
                                                     </fieldset>
                                                 </div>
@@ -105,7 +105,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Birth Date</label>
                                                 <div class="position-relative">
-                                                    <input type="date" name="date_of_birth" class="form-control" placeholder="birth" id="first-name-icon">
+                                                    <input type="date" name="date_of_birth" value="{{old('date_of_birth')}}" class="form-control" placeholder="birth" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
@@ -119,7 +119,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Email</label>
                                                 <div class="position-relative">
-                                                    <input type="text" name="email" class="form-control" placeholder="email" id="first-name-icon">
+                                                    <input type="text" name="email" value="{{old('email')}}" class="form-control" placeholder="email" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
@@ -133,7 +133,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Contact</label>
                                                 <div class="position-relative">
-                                                    <input type="text" name="contact" class="form-control" placeholder="contact" id="first-name-icon">
+                                                    <input type="text" name="contact" value="{{old('contact')}}" class="form-control" placeholder="contact" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-phone"></i>
                                                     </div>
@@ -147,7 +147,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Profile</label>
                                                 <div class="position-relative">
-                                                    <input type="file" name="employee_profile" class="form-control" placeholder="" id="first-name-icon">
+                                                    <input type="file" name="employee_profile" value="{{old('employee_profile')}}" class="form-control" placeholder="" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
@@ -158,11 +158,12 @@
                                             <div class="form-group">
                                                 <label for="country-floating">Department</label>
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" name="department_id" id="basicSelect">
-                                                            <option value="1">IT</option>
-                                                            <option>ENGINEERING</option>
-                                                            <option>HR</option>
-                                                            <option>FINANCE</option>
+                                                        <select name="department_id" id="department_id" class="form-control">
+
+                                                         
+                                                            @foreach ($departments as $department)
+                                                                <option value={{$department->id}}>{{$department->department_name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </fieldset>
                                             </div>
@@ -174,11 +175,10 @@
                                             <div class="form-group">
                                                 <label for="company-column">Designation</label>
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" name="designation_id" id="basicSelect">
-                                                            <option value="1">IT</option>
-                                                            <option value="2">MANAGER</option>
-                                                            <option value="3">SUPERVISOR</option>
-                                                            <option value="4">ENGINEER</option>
+                                                        <select name="designation_id" id="designation_id" class="form-control">
+                                                            @foreach ($designations as $designation)
+                                                                <option value={{$designation->id}}>{{$designation->designation_name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </fieldset>
                                             </div>
@@ -188,9 +188,24 @@
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group has-icon-left">
+                                                <label for="first-name-icon">Salary</label>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control" name="salary" value="{{old('salary')}}" placeholder="salary" id="first-name-icon">
+                                                    <div class="form-control-icon">
+                                                        <i class="fa fa-user"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @error('salary')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Username</label>
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control" name="username" placeholder="username" id="first-name-icon">
+                                                    <input type="text" class="form-control" name="username" value="{{old('username')}}" placeholder="username" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-user"></i>
                                                     </div>
@@ -204,7 +219,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Password</label>
                                                 <div class="position-relative">
-                                                    <input type="password" name="password" class="form-control" placeholder="passsword" id="first-name-icon">
+                                                    <input type="password" name="password" value="{{old('[password]')}}" class="form-control" placeholder="passsword" id="first-name-icon">
                                                     <div class="form-control-icon">
                                                         <i class="fa fa-key"></i>
                                                     </div>
