@@ -15,18 +15,24 @@
              <li class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                 <i class="fa fa-building text-success"></i>
-                <span>Department</span>
+                <span>Organization</span>
                 </a>
                 <ul class="submenu ">
                    <li>
                       <a href="/departments/create">Add Department</a>
                    </li>
                    <li>
-                      <a href="/departments">Manage Department</a>
+                      <a href="/departments">Manage Departments</a>
+                   </li>
+                    <li>
+                      <a href="/designations/create">Add Designation</a>
+                   </li>
+                   <li>
+                      <a href="/designations">Manage Designations</a>
                    </li>
                 </ul>
              </li>
-             <li class="sidebar-item  has-sub">
+             {{-- <li class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                 <i class="fa fa-table text-success"></i>
                 <span>Designation</span>
@@ -39,7 +45,7 @@
                       <a href="/designations">Manage Designation</a>
                    </li>
                 </ul>
-             </li>
+             </li> --}}
 
              <li class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
@@ -51,11 +57,17 @@
                       <a href="/employees/create">Add Employee</a>
                    </li>
                    <li>
-                      <a href="/employees">Manage Employee</a>
+                      <a href="/employees">Manage Employees</a>
                    </li>
+                   <li>
+                    <a href="attendance">Record Attendance</a>
+                  </li>
+                  <li>
+                    <a href="view_attendance">View Attendance List</a>
+                  </li>
                 </ul>
              </li>
-             <li class="sidebar-item has-sub">
+             {{-- <li class="sidebar-item has-sub">
                 <a href="#" class="sidebar-link">
                   <i class="fa fa-building text-success"></i>
                   <span>Attendance</span>
@@ -69,8 +81,8 @@
                   </li>
                 </ul>
               </li>
-             </li>
-             <li class="sidebar-item has-sub">
+             </li> --}}
+             {{-- <li class="sidebar-item has-sub">
                 <a href="#" class="sidebar-link">
                   <i class="fa fa-building text-success"></i>
                   <span>Allowances</span>
@@ -84,8 +96,45 @@
                   </li>
                 </ul>
               </li>
-             </li>
+             </li> --}}
+             {{-- <li class="sidebar-item has-sub">
+                <a href="#" class="sidebar-link">
+                  <i class="fa fa-building text-success"></i>
+                  <span>Deductions</span>
+                </a>
+                <ul class="submenu">
+                  <li>
+                    <a href="/deductions/create">Add Deduction</a>
+                  </li>
+                  <li>
+                    <a href="/deductions">Manage Deductions</a>
+                  </li>
+                </ul>
+              </li>
+             </li> --}}
              <li class="sidebar-item has-sub">
+                <a href="#" class="sidebar-link">
+                  <i class="fa fa-money-bill text-success"></i>
+                  <span>Payroll</span>
+                </a>
+                <ul class="submenu">
+                  
+                   <li class="sidebar-item has-sub">
+                <a href="#" class="sidebar-link">
+                  <i class="fa fa-building text-success"></i>
+                  <span>Allowances</span>
+                </a>
+                <ul class="submenu">
+                  <li>
+                  <a href="/allowances/create">Add Allowance</a>
+                  </li>
+                  <li>
+                  <a href="/allowances">Manage Allowances</a>
+                  </li>
+                </ul>
+              </li>
+             </li>
+                  <li class="sidebar-item has-sub">
                 <a href="#" class="sidebar-link">
                   <i class="fa fa-building text-success"></i>
                   <span>Deductions</span>
@@ -100,16 +149,11 @@
                 </ul>
               </li>
              </li>
-             <li class="sidebar-item has-sub">
-                <a href="#" class="sidebar-link">
-                  <i class="fa fa-building text-success"></i>
-                  <span>Payroll</span>
-                </a>
-                <ul class="submenu">
-                  <li>
+
+                  <li class="sidebar-item">
                     <a href="attendance">Add Payroll</a>
                   </li>
-                  <li>
+                  <li class="sidebar-item"> 
                     <a href="view_attendance">Manage Payroll</a>
                   </li>
                 </ul>

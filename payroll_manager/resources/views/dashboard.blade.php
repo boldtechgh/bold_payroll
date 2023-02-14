@@ -67,7 +67,14 @@
           <div class="col-xl-5 col-md-12 mb-4">
             <div class="card">
               <div class="card-body" id=''>
-                <h3>Employee Distribution</h3>
+                
+                 <div class="d-flex justify-content-between align-items-end">
+                  <h3>Employee Distribution</h3>
+                  <div class="d-flex justify-content-around font-weight-bold">
+                    <a type="button" class="btn" href="/employees/create"><i class="fa fa-plus text-success" title="Add Employee"></i></a>
+                    <a type="button" class="btn" href="/employees"><i class="fa fa-eye text-success" title="View Employees"></i></a>
+                  </div>
+                </div>
                 <div>
                   <canvas id="myChart"></canvas>
                 </div>
@@ -80,7 +87,11 @@
               <div class="card-body" id='' style="max-height: 60vh; overflow-y:auto;">
                 <div class="d-flex justify-content-between align-items-end">
                   <h3 class="">Departments</h3>
-                  <a type="button" class="btn btn-success" href="/departments/create">Add</a>
+                  <div class="d-flex justify-content-around font-weight-bold">
+                    <a type="button" class="btn" href="/departments/create"><i class="fa fa-plus text-success" title="Add Department"></i></a>
+                    <a type="button" class="btn" href="/departments"><i class="fa fa-eye text-success" title="View Departments"></i></a>
+                  </div>
+                  
                 </div>
                 
                 <table class='table' id="">

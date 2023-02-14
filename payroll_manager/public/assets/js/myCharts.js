@@ -14,7 +14,7 @@ $(document).ready(function () {
 
         type: "GET",
         success: function (data) {
-            displayMessage("Welcome");
+            displayMessage("Welcome Back");
             console.log("Data: ", data[0]);
 
             let departments = [];
