@@ -35,25 +35,27 @@ $(document).ready(function () {
                         {
                             label: "# of Employees",
                             data: employeeCount,
-                            backgroundColor: ["rgba(54, 162, 235, 0.2)"],
-                            borderColor: ["rgb(54, 162, 235)"],
+                            backgroundColor: "rgba(54, 162, 235, 0.2)",
+                            borderColor: "rgb(54, 162, 235)",
                             borderWidth: 2,
                         },
                     ],
                 },
                 options: {
                     scales: {
-                        x: [
-                            {
-                                gridLines: {
-                                    color: "#ffffff",
-                                },
-                                label: "Departments",
+                        x: {
+                            gridLines: {
+                                color: "#ffffff",
                             },
-                        ],
+                            title: {
+                                display: true,
+                                align: "center",
+                                text: "Departments",
+                            },
+                        },
+
                         y: {
                             beginAtZero: true,
-                            grace: 10,
                             min: 0,
                             max: 10,
                             gridLines: {
