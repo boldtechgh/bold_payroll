@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,10 +23,10 @@ use App\Http\Controllers\DesignationController;
 */
 
 
+//dashboard
+ Route::get('/', [DashboardController::class, 'index']);
 
- Route::get('/', function () {
-     return view('dashboard');
-});
+ Route::get('/employee_distro', [DashboardController::class, 'employee_distro']);
 
 //all departments
 Route::get('/departments', [DepartmentController::class, 'index']);
