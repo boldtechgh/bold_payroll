@@ -43,25 +43,33 @@ $(document).ready(function () {
                 },
                 options: {
                     scales: {
-                        x: {
-                            gridLines: {
-                                color: "#ffffff",
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true,
+                                    // min: 0,
+                                    // max: 2,
+                                    // suggestedMax: 40 + 20,
+                                    padding: 10,
+                                },
+                                gridLines: {
+                                    drawBorder: false,
+                                },
                             },
-                            title: {
-                                display: true,
-                                align: "center",
-                                text: "Departments",
+                        ],
+                        xAxes: [
+                            {
+                                title: {
+                                    display: true,
+                                    align: "center",
+                                    text: "Departments",
+                                },
+                                gridLines: {
+                                    display: false,
+                                    drawBorder: false,
+                                },
                             },
-                        },
-
-                        y: {
-                            beginAtZero: true,
-                            min: 0,
-                            max: 10,
-                            gridLines: {
-                                color: "#ffffff",
-                            },
-                        },
+                        ],
                     },
                 },
             });
