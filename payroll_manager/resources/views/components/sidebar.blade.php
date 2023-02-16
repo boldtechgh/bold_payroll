@@ -132,7 +132,7 @@
                   <a href="/allowances">Manage Allowances</a>
                   </li>
                   <li>
-                  <a href="/allowances">Assign Allowances</a>
+                  <a href="/employee_allowances/create">Assign Allowances</a>
                   </li>
                 </ul>
               </li>

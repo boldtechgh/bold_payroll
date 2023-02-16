@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeeAllowanceController;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
@@ -130,6 +131,20 @@ Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy']);
 Route::get('calendar-event', [CalendarController::class, 'index']);
 
 Route::post('calendar-crud-ajax', [CalendarController::class, 'calendarEvents']);
+
+//Employee Allowances
+
+//all employee allowances
+Route::get('/employee_allowances', [EmployeeAllowanceController::class, 'index']);
+
+//Show create employees form
+Route::get('/employee_allowances/create', [EmployeeAllowanceController::class, 'create']);
+
+//Store employee allowances
+Route::post('/employee_allowances', [EmployeeAllowanceController::class, 'store']);
+
+//Delete employee allowances
+Route::get('/employee_allowances/{employee_allowance}', [EmployeeAllowanceController::class, 'destroy']);
 
 // Route::get('/listings',function(){
 //     return view('listings', [
