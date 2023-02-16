@@ -15,11 +15,8 @@ class CreatePayrollTypeTable extends Migration
     {
         Schema::create('payroll_type', function (Blueprint $table) {
             $table->id();
-            $table->string('refNo');
-            $table->string('dateFrom');
-            $table->string('dateTo');
             $table->string('type');
-            $table->boolean('status');
+            $table->string('description');
             $table->timestamps();
         });
     }

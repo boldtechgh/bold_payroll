@@ -1,4 +1,4 @@
-<nav class="navbar navbar-header navbar-expand navbar-light">
+<nav class="navbar navbar-header navbar-expand navbar-dark bg-primary col-md-12 nav-shadow">
     <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
     <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -10,7 +10,7 @@
          <li class="dropdown nav-icon">
                  <a href="#" data-bs-toggle="dropdown"
                      class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
-                     <div class="d-lg-inline-block">
+                     <div class="d-lg-inline-block text-white">
                          <i data-feather="bell"></i><span class="badge bg-info">2</span>
                      </div>
                  </a>
@@ -42,7 +42,7 @@
                 <div class="avatar me-1">
                    <img src="{{asset('assets/images/admin.png')}}" alt="" srcset="">
                 </div>
-                <div class="d-none d-md-block d-lg-inline-block">Hi, Admin</div>
+                <div class="d-none d-md-block d-lg-inline-block text-white">Hi, Admin</div>
              </a>
              <div class="dropdown-menu dropdown-menu-end">
                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>

@@ -1,9 +1,9 @@
 <div id="sidebar" class='active'>
     <div class="sidebar-wrapper active">
-       <div class="sidebar-header" style="height: 50px;margin-top: -30px">
-              {{-- <i class="fa fa-users text-success me-4"></i> --}}
+      <div class="sidebar-header">
+              <i class="fa fa-money-bill text-primary me-4"></i>
                 <span>PAYROLL</span>
-        </div>
+      </div>
        <div class="sidebar-menu">
           <ul class="menu">
              <li class="sidebar-item active ">
