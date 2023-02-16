@@ -33,7 +33,7 @@
     position: relative;
 }
 #main {
-    margin-left: 260px;
+    margin-left: 300px;
     background-color: #f7faff;
     min-height: 100vh;
     transition: margin-left 0.6s ease-out;
@@ -694,7 +694,7 @@ footer {
     align-items: center;
 }
 .sidebar-wrapper {
-    width: 260px;
+    width: 300px;
     height: 100vh;
     position: fixed;
     top: 0;

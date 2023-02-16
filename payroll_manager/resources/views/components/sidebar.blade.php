@@ -131,6 +131,9 @@
                   <li>
                   <a href="/allowances">Manage Allowances</a>
                   </li>
+                  <li>
+                  <a href="/allowances">Assign Allowances</a>
+                  </li>
                 </ul>
               </li>
              </li>
@@ -145,6 +148,9 @@
                   </li>
                   <li>
                     <a href="/deductions">Manage Deductions</a>
+                  </li>
+                  <li>
+                    <a href="/deductions">Assign Deductions</a>
                   </li>
                 </ul>
               </li>

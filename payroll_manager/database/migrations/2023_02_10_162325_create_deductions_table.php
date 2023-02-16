@@ -18,6 +18,9 @@ class CreateDeductionsTable extends Migration
             $table->string('deduction_name');
             $table->float('deduction_amount');
             $table->string('deduction_description');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('mode');
             $table->timestamps();
         });
     }

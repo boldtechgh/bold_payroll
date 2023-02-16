@@ -15,6 +15,8 @@ class CreateEmployeeDeductionsTable extends Migration
     {
         Schema::create('employee_deductions', function (Blueprint $table) {
             $table->id();
+            $table->string('employee_id');
+            $table->string('deduction_id');
             $table->timestamps();
         });
     }

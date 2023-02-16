@@ -18,6 +18,9 @@ class CreateAllowancesTable extends Migration
             $table->string('allowance_name');
             $table->float('allowance_amount');
             $table->string('allowance_description');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('mode');
             $table->timestamps();
         });
     }
