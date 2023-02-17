@@ -11,6 +11,7 @@ use App\Http\Controllers\AllowanceController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\UserController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -125,6 +126,25 @@ Route::put('/employees/{employee}', [EmployeeController::class, 'update']);
 
 // Delete deductions data
 Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy']);
+
+
+//all users
+Route::get('/users', [UserController::class, 'index']);
+
+// Show create users form
+Route::get('/register', [UserController::class, 'create']);
+
+// Store employees data
+Route::post('/users', [UserController::class, 'store']);
+
+// single employees
+Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+
+// Update employees data
+Route::put('/users/{user}', [USerController::class, 'update']);
+
+// Delete deductions data
+Route::delete('/users/{user}', [UserController::class, 'destroy']);
 
 
 //Calendar Routes
