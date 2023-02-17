@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
+use App\Models\Allowance;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\EmployeeAllowance;
@@ -12,61 +14,41 @@ class EmployeeAllowanceController extends Controller
     // show all Allowances
     public function index(){
         return view('employee_allowances.index',[
-            'employee_allowances' => EmployeeAllowance::latest()->get()
+            'employees' => Employee::latest()->get(),
+            'employee_allowances' => EmployeeAllowance::latest()->get(),
+            'allowances' => Allowance::latest()->get()
        ]);
     }
 
-    // Show create allowance form
+    // Show assign employee allowance form
     public function create(){
-        return view('employee_allowances.create');
+        return view('employee_allowances.create',['allowances' => Allowance::latest()->get(), 'employees' => Employee::latest()->get()]);
     }
 
     // Store allowance data
     public function store(Request $request){
         // dd($request->all());
         $formFields = $request->validate([
-            'allowance_name' => ['required', Rule::unique('allowances','allowance_name')],
-            'allowance_amount' => 'required',
-            'allowance_description' => 'required'
+            'allowance_id' => 'required',
+            'employee_id' => 'required',
         ]);
         EmployeeAllowance::create($formFields);
 
-        
-
-        return redirect('/allowances')->with('message','Allowance Add Sucess!');
+        return redirect('/employee_allowances')->with('message','Allowance Assigned Sucessfully!');
     }
     
 
-        // Show single allowance
-        public function edit(EmployeeAllowance $allowance){
-            return view('allowances.edit',['allowance' => $allowance]);
+        // Assign single employee allowance
+        public function edit($id){
+            return view('employee_allowances.edit',['employee' => Employee::find($id), 'allowances' => Allowance::latest()->get()]);
         }
-     // Update allowance data
-     public function update(Request $request, $id){
-        // dd($request->all());
-        $formFields = $request->validate([
-            'allowance_name' =>  'required',
-            'allowance_amount' =>  'required',
-            'allowance_description' => 'required'
-        ]);
-
-        $allowance = EmployeeAllowance::find($id);
-
-        // Getting values from the blade template form
-        $allowance->allowance_name =  $request->get('allowance_name');
-        $allowance->allowance_amount =  $request->get('allowance_amount');
-        $allowance->allowance_description = $request->get('allowance_description');
-        $allowance->save();
-        
-
-        return back()->with('message','Allowance Updated Sucessfully!');
-    }
+     
     
     public function destroy($id)
     {
         $allowance = EmployeeAllowance::find($id);
         $allowance->delete();
  
-        return redirect('/allowances')->with('success', 'Allowance removed.');
+        return redirect('/employee_allowances')->with('success', 'Employees allowance removed.');
     } 
 }

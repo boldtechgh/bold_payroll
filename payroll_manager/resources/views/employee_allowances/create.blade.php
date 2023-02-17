@@ -34,7 +34,13 @@
                             <div class="form-group has-icon-left">
                                 <label for="email-id-icon">Allowance</label>
                                 <div class="position-relative">
-                                    <input type="text" class="form-control" placeholder="Allowance Name" id="email-id-icon" name="allowance_id" value="{{old('allowance_id')}}">
+                                    {{-- <input type="text" class="form-control" placeholder="Allowance Name" id="email-id-icon" name="allowance_id" value="{{old('allowance_id')}}"> --}}
+                                    <select name="allowance_id" id="allowance_id" value="{{old('allowance_id')}}" class="form-control">
+                                        <option value="">Select Allowance</option>
+                                        @foreach ($allowances as $allowance)
+                                            <option value={{$allowance->id}}>{{$allowance->allowance_name}}</option>
+                                        @endforeach
+                                </select>
                                     <div class="form-control-icon">
                                         <i class="fa fa-table"></i>
                                     </div>
@@ -49,7 +55,13 @@
                             <div class="form-group has-icon-left">
                                 <label for="email-id-icon">Employee</label>
                                 <div class="position-relative">
-                                    <input type="text" class="form-control" placeholder="Allowance Amount" id="email-id-icon" name="employee_id" value="{{old('employee_id')}}">
+                                    {{-- <input type="text" class="form-control" placeholder="Allowance Amount" id="email-id-icon" name="employee_id" value="{{old('employee_id')}}"> --}}
+                                    <select name="employee_id" id="employee_id" value="{{old('employee_id')}}" class="form-control">
+                                        <option value="">Select Employee</option>
+                                            @foreach ($employees as $employee)
+                                        <option value={{$employee->employee_id}}>{{$employee->last_name}} {{$employee->first_name}}</option>
+                                    @endforeach
+                                </select>
                                     <div class="form-control-icon">
                                         <i class="fa fa-table"></i>
                                     </div>

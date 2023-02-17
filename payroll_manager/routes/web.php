@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\EmployeeAllowanceController;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AllowanceController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\EmployeeAllowanceController;
+use App\Http\Controllers\EmployeeDeductionController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -143,47 +144,27 @@ Route::get('/employee_allowances/create', [EmployeeAllowanceController::class, '
 //Store employee allowances
 Route::post('/employee_allowances', [EmployeeAllowanceController::class, 'store']);
 
+//Show edit employees form
+Route::get('/employee_allowances/{employee_allowance}/edit', [EmployeeAllowanceController::class, 'edit']);
+
 //Delete employee allowances
-Route::get('/employee_allowances/{employee_allowance}', [EmployeeAllowanceController::class, 'destroy']);
+Route::delete('/employee_allowances/{employee_allowance}', [EmployeeAllowanceController::class, 'destroy']);
 
-// Route::get('/listings',function(){
-//     return view('listings', [
-//         'heading' => 'Latest Listings',
-//         'listings' => Listing::all()
-//     ]);
-// });
 
-// Route::get('/hello', function(){
-//     return response('<h1>Hello There</h1>',200)
-//     ->header('Content-Type','text/html')
-//     ->header('foo','Hello');
-// });
+//Employee Deductions
 
-// Route::get('/post/{id}', function($id){
-//     // dd($id);
-//     return response('Post ' . $id );
-// })->where('id', '[0-9]+');
+//all employee deductions
+Route::get('/employee_deductions', [EmployeeDeductionController::class, 'index']);
 
-// Route::get('/search', function(Request $request){
-//     return $request->name.' '. $request->pass;
-// });  
+//Show create employees form
+Route::get('/employee_deductions/create', [EmployeeDeductionController::class, 'create']);
 
-// //single 
+//Store employee deductions
+Route::post('/employee_deductions', [EmployeeDeductionController::class, 'store']);
 
-// Route::get('/listings/{id}', function($id){
-//     return view('listing',[
-//         'listing' => Listing::find($id)
-//     ]);
+//Show edit employees form
+Route::get('/employee_deductions/{employee_deduction}/edit', [EmployeeDeductionController::class, 'edit']);
 
-// });
+//Delete employee deductions
+Route::delete('/employee_deductions/{employee_deduction}', [EmployeeDeductionController::class, 'destroy']);
 
-// =Route::get('/department', function () {
-//     return view('department', [
-//         'department' => Department::all()
-//     ]);
-// });
-// Route::get('/attendance',function(){
-//     return view('attendance',[
-//         'attendance' => 'Hello',
-//     ]);
-// });

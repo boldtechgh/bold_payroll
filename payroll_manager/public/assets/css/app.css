@@ -1338,3 +1338,13 @@ footer {
 .nav-shadow {
     box-shadow: -8px 12px 18px 0 rgba(25, 42, 70, 0.13);
 }
+
+.all-action {
+    height: 20px;
+}
+
+.all-action button {
+    height: 100%;
+    padding: 0 2px;
+    font-size: 10px;
+}

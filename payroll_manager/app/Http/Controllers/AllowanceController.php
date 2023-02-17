@@ -25,7 +25,10 @@ class AllowanceController extends Controller
         $formFields = $request->validate([
             'allowance_name' => ['required', Rule::unique('allowances','allowance_name')],
             'allowance_amount' => 'required',
-            'allowance_description' => 'required'
+            'allowance_description' => 'required',
+            'start_date' => '',
+            'end_date' => '',
+            'mode' => ''
         ]);
         Allowance::create($formFields);
 
@@ -45,7 +48,10 @@ class AllowanceController extends Controller
         $formFields = $request->validate([
             'allowance_name' =>  'required',
             'allowance_amount' =>  'required',
-            'allowance_description' => 'required'
+            'allowance_description' => 'required',
+            'start_date' => '',
+            'end_date' => '',
+            'mode' => ''
         ]);
 
         $allowance = Allowance::find($id);
@@ -54,6 +60,9 @@ class AllowanceController extends Controller
         $allowance->allowance_name =  $request->get('allowance_name');
         $allowance->allowance_amount =  $request->get('allowance_amount');
         $allowance->allowance_description = $request->get('allowance_description');
+        $allowance->start_date = $request->get('start_date');
+        $allowance->end_date = $request->get('end_date');
+        $allowance->mode = $request->get('mode');
         $allowance->save();
         
 

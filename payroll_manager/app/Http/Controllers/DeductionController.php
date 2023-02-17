@@ -25,7 +25,10 @@ class DeductionController extends Controller
         $formFields = $request->validate([
             'deduction_name' => ['required', Rule::unique('deductions','deduction_name')],
             'deduction_amount' => 'required',
-            'deduction_description' => 'required'
+            'deduction_description' => 'required',
+            'start_date' => '',
+            'end_date' => '',
+            'mode' => ''
         ]);
         Deduction::create($formFields);
 
@@ -45,7 +48,10 @@ class DeductionController extends Controller
         $formFields = $request->validate([
             'deduction_name' =>  'required',
             'deduction_amount' =>  'required',
-            'deduction_description' => 'required'
+            'deduction_description' => 'required',
+            'start_date' => '',
+            'end_date' => '',
+            'mode' => ''
         ]);
 
         $deduction = Deduction::find($id);
@@ -54,6 +60,9 @@ class DeductionController extends Controller
         $deduction->deduction_name =  $request->get('deduction_name');
         $deduction->deduction_amount =  $request->get('deduction_amount');
         $deduction->deduction_description = $request->get('deduction_description');
+        $deduction->start_date = $request->get('start_date');
+        $deduction->end_date = $request->get('end_date');
+        $deduction->mode = $request->get('mode');
         $deduction->update($formFields);
         
 

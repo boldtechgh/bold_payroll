@@ -9,5 +9,5 @@ class Allowance extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['allowance_name', 'allowance_amount', 'allowance_description'];
+    protected $fillable = ['allowance_name', 'allowance_amount', 'allowance_description','start_date','end_date','mode'];
 }

@@ -73,6 +73,53 @@
                             <p class="text-danger text-mt-1">{{$message}}</p>
                             @enderror
                         </div>
+                        <div class="col-12">
+                            <div class="form-group has-icon-left">
+                                <label for="first-name-icon">Start Date</label>
+                                <div class="position-relative">
+                                    <input type="date" class="form-control" placeholder="Start Date" id="first-name-icon" name="start_date" value="{{old('start_date')}}">
+                                    <div class="form-control-icon">
+                                        <i class="fa fa-table"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('allowance_description')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group has-icon-left">
+                                <label for="first-name-icon">End Date</label>
+                                <div class="position-relative">
+                                    <input type="date" class="form-control" placeholder="End Date id="first-name-icon" name="end_date" value="{{old('end_date')}}">
+                                    <div class="form-control-icon">
+                                        <i class="fa fa-table"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('allowance_description')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group has-icon-left">
+                                <label for="first-name-icon">Mode of Calculation</label>
+                                <div class="position-relative">
+                                    <select name="mode" id="mode" value="{{old('mode')}}" class="form-control">
+                                                                                    
+                                        <option value="fixed">Fixed Value</option>
+                                        <option value="percentage">percentage</option>
+                                    
+                                </select>
+                                    <div class="form-control-icon">
+                                        <i class="fa fa-table"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('allowance_description')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
+                        </div>
     
                         <div class="col-12 d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>

@@ -6,6 +6,7 @@
       <title>Payroll Manager</title>
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
+      <link rel="stylesheet" href="{{asset('assets/bootstrap')}}">
       <script defer src="{{asset('assets/fontawesome/js/all.min.js')}}"></script>
 
       <link rel="stylesheet" href="{{asset('assets/vendors/simple-datatables/style.css')}}">
