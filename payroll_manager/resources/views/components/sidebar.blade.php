@@ -211,10 +211,10 @@
                 </a>
                 <ul class="submenu ">
                    <li>
-                      <a href="add_user.html">Add User</a>
+                      <a href="/register">Add User</a>
                    </li>
                    <li>
-                      <a href="manage_user.html">Manage Users</a>
+                      <a href="/users">Manage Users</a>
                    </li>
                 </ul>
              </li>
