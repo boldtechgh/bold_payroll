@@ -3,6 +3,8 @@
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AllowanceController;
@@ -10,9 +12,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\PayrollTypeController;
+use App\Http\Controllers\PayrollItemsController;
 use App\Http\Controllers\EmployeeAllowanceController;
 use App\Http\Controllers\EmployeeDeductionController;
-use App\Http\Controllers\UserController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -187,4 +190,59 @@ Route::get('/employee_deductions/{employee_deduction}/edit', [EmployeeDeductionC
 
 //Delete employee deductions
 Route::delete('/employee_deductions/{employee_deduction}', [EmployeeDeductionController::class, 'destroy']);
+
+
+//Payroll Types
+
+//all payroll types
+Route::get('/payroll_types', [PayrollTypeController::class, 'index']);
+
+//Show create payroll type form
+Route::get('/payroll_types/create', [PayrollTypeController::class, 'create']);
+
+//Store payroll type
+Route::post('/payroll_types', [PayrollTypeController::class, 'store']);
+
+//Show edit payroll type form
+Route::get('/payroll_types/{payroll_type}/edit', [PayrollTypeController::class, 'edit']);
+
+//Update payroll type
+Route::put('/payroll_types/{payroll_type}', [PayrollTypeController::class, 'update']);
+
+//Delete payroll type
+Route::delete('/payroll_types/{payroll_type}', [PayrollTypeController::class, 'destroy']);
+
+
+//Payrolls
+
+//all payrolls
+Route::get('/payrolls', [PayrollController::class, 'index']);
+
+//Show create payroll  form
+Route::get('/payrolls/create', [PayrollController::class, 'create']);
+
+//Store payroll 
+Route::post('/payrolls', [PayrollController::class, 'store']);
+
+//Show edit payroll  form
+Route::get('/payrolls/{payroll}/edit', [PayrollController::class, 'edit']);
+
+//Update payroll 
+Route::put('/payrolls/{payroll}', [PayrollController::class, 'update']);
+
+//Update payroll status 
+Route::get('/payrolls/{payroll}/status', [PayrollController::class, 'updateStatus']);
+
+//Delete payroll 
+Route::delete('/payrolls/{payroll}', [PayrollController::class, 'destroy']);
+
+
+//Payroll Items
+
+//Store payroll items 
+Route::get('/payroll_items/{payroll}', [PayrollItemsController::class, 'store']);
+
+//Store payroll items 
+Route::get('/payroll_items/{payroll}/show', [PayrollItemsController::class, 'show']);
+
 

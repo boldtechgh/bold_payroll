@@ -9,5 +9,5 @@ class Payroll extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ref_no', 'date_from', 'date_to', 'payroll_type', 'status'];
+    protected $fillable = ['ref_no', 'start_date', 'end_date', 'payroll_type', 'status'];
 }

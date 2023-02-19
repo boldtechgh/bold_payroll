@@ -17,7 +17,9 @@
                 </div>
                 <section class="section">
                     <div class="card">
+                        
                         <div class="card-body">
+                            <a type="button" class="btn btn-success mb-2" href="/allowances/create">Add Allowance</a>
                             <table class='table' id="table1">
                                 <thead>
                                     <tr>
@@ -36,14 +38,14 @@
                                         <td>{{$allowance->allowance_amount}}</td>
                                         <td>{{$allowance->allowance_description}}</td>
                                         <td>{{$allowance->created_at}}</td>
-                                        <td><a href="/allowances/{{$allowance->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
+                                        <td class="d-flex"><a type="button" class="btn btn-info me-1 mb-1" href="/allowances/{{$allowance->id}}/edit"><i class="fa fa-pen"></i></a>   
                                             <form action="/allowances/{{$allowance->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 {{-- <a type="submit" href="/allowances/{{$allowance->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a> --}}
                                             {{-- <button type="submit" class="btn btn-primary me-1 mb-1">Delete</button> --}}
                                             &nbsp;
-                                            <button type="submit" class=" me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash text-danger"></i></button>
+                                            <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
                                         </form>
                                         </div>
                                         </td>

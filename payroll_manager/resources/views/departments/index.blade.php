@@ -18,6 +18,7 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
+                <a type="button" class="btn btn-success mb-2" href="/departments/create">Add Department</a>
                 <table class='table' id="table1">
                     <thead>
                         <tr>
@@ -34,7 +35,7 @@
                             <td>{{$department->department_name}}</td>
                             <td>{{$department->department_short_name}}</td>
                             <td>{{$department->created_at}}</td>
-                            <td><a href="/department/{{$department->id}}/edit"><i class="fa fa-pen text-success"></i></a>   
+                            <td class="d-flex"><a type="button" class="btn btn-info me-1 mb-1" href="/department/{{$department->id}}/edit"><i class="fa fa-pen"></i></a>   
                                 <form action="/departments/{{$department->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')   

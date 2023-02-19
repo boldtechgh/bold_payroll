@@ -163,10 +163,13 @@
              </li>
 
                   <li class="sidebar-item">
-                    <a href="attendance">Add Payroll</a>
+                    <a href="/payrolls/create">Generate Payroll</a>
                   </li>
                   <li class="sidebar-item"> 
-                    <a href="view_attendance">Manage Payroll</a>
+                    <a href="/payrolls">Manage Payroll</a>
+                  </li>
+                  <li class="sidebar-item"> 
+                    <a href="/payroll_types">Payroll Types</a>
                   </li>
                 </ul>
               </li>

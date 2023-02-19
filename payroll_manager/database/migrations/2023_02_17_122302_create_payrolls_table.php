@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePayrollTypeTable extends Migration
+class CreatePayrollsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreatePayrollTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('payroll_type', function (Blueprint $table) {
+        Schema::create('payrolls', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('description');
+            $table->string('ref_no');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('payroll_type');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreatePayrollTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payroll_type');
+        Schema::dropIfExists('payrolls');
     }
 }

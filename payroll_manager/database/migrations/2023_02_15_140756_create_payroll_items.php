@@ -22,7 +22,7 @@ class CreatePayrollItems extends Migration
             $table->float('salary');
             $table->float('total_allowance');
             $table->float('total_deduction');
-            $table->float('net-salary');
+            $table->float('net_salary');
             $table->timestamps();
         });
     }
