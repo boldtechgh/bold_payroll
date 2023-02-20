@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payroll;
+use App\Models\Employee;
 use App\Models\PayrollType;
+use App\Models\PayrollItems;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -40,6 +42,23 @@ class PayrollController extends Controller
     
 
         // Show single payroll
+         public function show($refNo){
+            $payroll = Payroll::find($refNo);
+            // dd($payroll->id);
+
+            $payroll_items = PayrollItems::where('payroll_id', $payroll->ref_no)->get();
+            // dd($payroll_items);
+
+
+            return view('payrolls.show',[
+                'payroll_items' => $payroll_items, 
+                'payroll' => $payroll,
+                'employees' => Employee::latest()->get(),
+                'payroll_types' => PayrollType::latest()->get(),
+            ]);
+        }
+
+        //edit single payroll
         public function edit(Payroll $payroll){
             return view('payrolls.edit',['payroll' => $payroll, 'payrollTypes' => PayrollType::latest()->get()]);
         }

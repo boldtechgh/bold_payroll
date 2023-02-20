@@ -42,8 +42,7 @@
                                             <form action="/allowances/{{$allowance->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                {{-- <a type="submit" href="/allowances/{{$allowance->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a> --}}
-                                            {{-- <button type="submit" class="btn btn-primary me-1 mb-1">Delete</button> --}}
+                                              
                                             &nbsp;
                                             <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
                                         </form>

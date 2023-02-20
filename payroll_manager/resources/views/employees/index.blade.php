@@ -36,9 +36,9 @@
                         <tr>
                             
                             <td>{{$employee->employee_id}}</td>
-                            <td>{{$employee->first_name}}</td>
-                            <td>{{$employee->department_id}}</td>
-                            <td><span class="badge bg-success">{{$employee->designation_id}}</span></td>
+                            <td>{{$employee->last_name}} {{$employee->middle_name}} {{$employee->first_name}}</td>
+                            <td>{{$employee->department_name}}</td>
+                            <td>{{$employee->designation_name}}</td>
                             <td>{{$employee->created_at}}</td>
                             <td class="d-flex"><a type="button" class="btn btn-info me-1 mb-1" href="/employees/{{$employee->id}}/edit"><i class="fa fa-pen"></i></a>   
                                 <form action="/employees/{{$employee->id}}" method="POST">

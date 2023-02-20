@@ -13,9 +13,10 @@ class EmployeeController extends Controller
     // 
     public function index(){
         return view('employees.index',[
-            'employees' => Employee::latest()->get(),
-            'departments' => Department::latest()->get(),
-            'designations' => Designation::latest()->get()
+            'employees' => Employee::select('employees.*', 'departments.department_name', 'designations.designation_name')
+            ->join('departments', 'employees.department_id', '=', 'departments.id')
+            ->join('designations', 'employees.designation_id', '=', 'designations.id')
+            ->get()
        ]);
     }
 

@@ -224,7 +224,10 @@ Route::get('/payrolls/create', [PayrollController::class, 'create']);
 //Store payroll 
 Route::post('/payrolls', [PayrollController::class, 'store']);
 
-//Show edit payroll  form
+//show single payroll
+Route::get('/payrolls/{payroll}/show', [PayrollController::class, 'show']);
+
+//Show edit payroll form
 Route::get('/payrolls/{payroll}/edit', [PayrollController::class, 'edit']);
 
 //Update payroll 
@@ -242,7 +245,8 @@ Route::delete('/payrolls/{payroll}', [PayrollController::class, 'destroy']);
 //Store payroll items 
 Route::get('/payroll_items/{payroll}', [PayrollItemsController::class, 'store']);
 
-//Store payroll items 
-Route::get('/payroll_items/{payroll}/show', [PayrollItemsController::class, 'show']);
+//Show single payroll item
+Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class, 'show']); 
+
 
 

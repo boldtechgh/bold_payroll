@@ -53,7 +53,7 @@
                                                 @if ($payroll->status == 'new')
                                                     <a type="button" class="btn btn-success me-1 mb-1" href="/payroll_items/{{$payroll->ref_no}}">Calculate</a>
                                                 @else
-                                                    <a type="button" class="btn btn-info me-1 mb-1" href="/payroll_items/{{$payroll->id}}/show"><i class="fa fa-eye"></i></a>
+                                                    <a type="button" class="btn btn-info me-1 mb-1" href="/payrolls/{{$payroll->id}}/show"><i class="fa fa-eye"></i></a>
                                                 @endif
                                                <a type="button" class="btn btn-info me-1 mb-1" href="/payrolls/{{$payroll->id}}/edit"><i class="fa fa-pen"></i></a>   
                                             <form action="/payrolls/{{$payroll->id}}" method="POST">

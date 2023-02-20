@@ -1348,3 +1348,48 @@ footer {
     padding: 0 2px;
     font-size: 10px;
 }
+
+/* CSS styles for the payslip */
+.payslip {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    width: 80%;
+    font-size: 12px;
+}
+.payslip h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.payslip table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.payslip table td,
+.payslip table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.payslip table th {
+    text-align: left;
+    background-color: #f2f2f2;
+}
+.payslip table td.amount {
+    text-align: right;
+}
+.payslip table th.extras {
+    text-align: right;
+    font-weight: 400;
+}
+.payslip table th.titles {
+    font-weight: bold;
+    font-size: 14px;
+}
+.payslip table td.final {
+    font-weight: bold;
+    font-size: 14px;
+}
+.payslip button {
+    display: block;
+    margin: 20px auto;
+}

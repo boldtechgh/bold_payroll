@@ -91,6 +91,7 @@
                                                 <div class="position-relative">
                                                     <fieldset class="form-group">
                                                         <select class="form-select" name="gender" id="basicSelect">
+                                                            <option value="">Select Gender</option>
                                                             <option value="Male">Male</option>
                                                             <option value="Female">Female</option>
                                                         </select>
@@ -160,7 +161,7 @@
                                                     <fieldset class="form-group">
                                                         <select name="department_id" id="department_id" class="form-control">
 
-                                                         
+                                                         <option value="">Select Department</option>
                                                             @foreach ($departments as $department)
                                                                 <option value={{$department->id}}>{{$department->department_name}}</option>
                                                             @endforeach
@@ -176,6 +177,7 @@
                                                 <label for="company-column">Designation</label>
                                                     <fieldset class="form-group">
                                                         <select name="designation_id" id="designation_id" class="form-control">
+                                                            <option value="">Select Designation</option>
                                                             @foreach ($designations as $designation)
                                                                 <option value={{$designation->id}}>{{$designation->designation_name}}</option>
                                                             @endforeach

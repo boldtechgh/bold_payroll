@@ -64,18 +64,33 @@ class PayrollItemsController extends Controller
 
 
         public function show($refNo){
-            $payroll = Payroll::find($refNo);
-            // dd($payroll->id);
+            $payroll_item = PayrollItems::select('payroll_items.*', 'employees.*','payrolls.*', 'departments.department_name', 'designations.designation_name')
+                ->join('employees', 'payroll_items.employee_id', '=', 'employees.id')
+                ->join('payrolls', 'payroll_items.payroll_id', '=', 'payrolls.ref_no')
+                ->join('departments', 'employees.department_id', '=', 'departments.id')
+                ->join('designations', 'employees.designation_id', '=', 'designations.id')
+                ->where('payroll_items.id', $refNo)
+                ->first();
+            
+            $allowances = EmployeeAllowance::select('employee_allowances.allowance_id', 'allowances.*')
+                ->join('allowances', 'employee_allowances.allowance_id', '=', 'allowances.id')
+                ->where('employee_allowances.employee_id', '=', $payroll_item->employee_id)
+                ->get();
+            
+            $deductions = EmployeeDeduction::select('employee_deductions.deduction_id', 'deductions.*')
+                ->join('deductions', 'employee_deductions.deduction_id', '=', 'deductions.id')
+                ->where('employee_deductions.employee_id', '=', $payroll_item->employee_id)
+                ->get();
+            // dd($payroll_item, $refNo, $allowances, $deductions);
 
-            $payroll_items = PayrollItems::where('payroll_id', $payroll->ref_no)->get();
-            // dd($payroll_items);
-
+             if (!$payroll_item) {
+            abort(404, 'Payroll record not found');
+        }
 
             return view('payroll_items.show',[
-                'payroll_items' => $payroll_items, 
-                'payroll' => $payroll,
-                'employees' => Employee::latest()->get(),
-                'payroll_types' => PayrollType::latest()->get(),
+                'payroll_item' => $payroll_item,
+                'allowances' => $allowances,
+                'deductions' => $deductions 
             ]);
         }
 }

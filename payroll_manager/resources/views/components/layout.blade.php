@@ -22,6 +22,29 @@
           background-color: rgba(0,0,0,0.1);
                   }
       </style>
+      
+        <script type="text/javascript">
+          function PrintDiv(id) {
+            var data=document.getElementById(id).innerHTML;
+            var myWindow = window.open('', 'PRINT', 'height=1123,width=794');
+            myWindow.document.write('<html><head><title>' + document.title  + '</title>');
+            myWindow.document.write('<link rel="stylesheet" href="{{asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">');
+            myWindow.document.write('<link rel="stylesheet" href="{{asset('assets/vendors/simple-datatables/style.css')}}">');
+            myWindow.document.write('<link rel="stylesheet" href="{{asset('assets/css/app.css')}}">');
+            myWindow.document.write('<link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">');
+            myWindow.document.write('</head><body >');
+            myWindow.document.write(data);
+            myWindow.document.write('</body></html>');
+            myWindow.document.close(); // necessary for IE >= 10
+
+            myWindow.onload=function(){ // necessary if the div contain images
+
+              myWindow.focus(); // necessary for IE >= 10
+              myWindow.print();
+              myWindow.close();
+            };
+          }
+        </script>
    </head>
    <body>
     

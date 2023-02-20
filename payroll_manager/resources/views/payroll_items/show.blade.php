@@ -3,13 +3,13 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Payroll</h3>
+                            <h3>Payslip</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class='breadcrumb-header'>
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/payrolls" class="text-success">Payrolls</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Payroll: {{$payroll->ref_no}}</li>
+                                    <li class="breadcrumb-item"><a href="/payrolls/" class="text-success">Payroll</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Payroll: {{$payroll_item->ref_no}}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -19,58 +19,78 @@
                     <div class="card">
                         <div class="card-body">
                             {{-- <a type="button" class="btn btn-success mb-2" href="/payrolls/create">Generate Payroll</a> --}}
-                            <div>
-                                <h3 class="mb-4">Ref No: {{$payroll->ref_no}}</h3>
+                            {{-- <div>
+                                <h3 class="mb-4">Ref No: {{$payroll_item->ref_no}}</h3>
                                 @foreach ($payroll_types as $payroll_type)
-                                    @if ($payroll_type->id == $payroll->payroll_type)
+                                    @if ($payroll_type->id == $payroll_item->payroll_type)
                                         <h4 class="mb-4">Payroll Type: {{$payroll_type->type}}</h4>
                                     @endif
                                 @endforeach
-                                <h4 class="text-primary">Period: {{date_format(date_create($payroll->start_date), "d/M/Y")}} - {{date_format(date_create($payroll->end_date), "d/M/Y")}}</h4>
-                            </div>
-                            <table class='table' id="table1">
-                                <thead>
+                                <h4 class="text-primary">Period: {{date_format(date_create($payroll_item->start_date), "d/M/Y")}} - {{date_format(date_create($payroll_item->end_date), "d/M/Y")}}</h4>
+                            </div> --}}
+                            <div id="print">
+                            <div class="payslip">
+                                <h1>Payslip</h1>
+                             <table>
                                     <tr>
                                         <th>Employee ID</th>
-                                        <th>Name</th>
-                                        <th>Salary</th>
-                                        <th>Total Allowance</th>
-                                        <th>Total Deduction</th>
-                                        <th>Net Salary</th>
-                                        <th>Action</th>
+                                        <td>{{ $payroll_item->employee_id }}</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($payroll_items as $payroll_item)
+                                    <tr>
+                                        <th>Employee Name</th>
+                                        <td>{{ $payroll_item->last_name }} {{ $payroll_item->middle_name }} {{ $payroll_item->first_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Department</th>
+                                        <td>{{ $payroll_item->department_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Designation</th>
+                                        <td>{{ $payroll_item->designation_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Payroll Date</th>
+                                        <td>{{ date_format(date_create($payroll_item->created_at), "d/M/Y") }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pay Period Start</th>
+                                        <td>{{ date_format(date_create($payroll_item->start_date), "d/M/Y") }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pay Period End</th>
+                                        <td>{{ date_format(date_create($payroll_item->end_date), "d/M/Y") }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="extras">Basic Salary</th>
+                                        <td class="amount">GHc {{ number_format($payroll_item->salary, 2) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="extras titles">Allowances</th>
+                                    </tr>
+                                    @foreach ($allowances as $allowance)
                                         <tr>
-                                            @foreach ($employees as $employee)
-                                                @if ($employee->id == $payroll_item->employee_id)
-                                                    <td>{{$employee->employee_id}}</td>
-                                                    <td>{{$employee->last_name}} {{$employee->middle_name}} {{$employee->first_name}}</td>
-                                                @endif
-                                            @endforeach
-                                            <td>{{$payroll_item->salary}}</td>
-                                            <td>{{$payroll_item->total_allowance}}</td>
-                                            <td>{{$payroll_item->total_deduction}}</td>
-                                            <td>{{$payroll_item->net_salary}}</td>
-                                           
-                                            
-                                            <td class='d-flex'>
-                                               
-                                                    <a type="button" class="btn btn-info me-1 mb-1" href="/payrolls/{{$payroll->id}}/show"><i class="fa fa-eye"></i></a>
-                                              
-                                               <a type="button" class="btn btn-info me-1 mb-1" href="/payrolls/{{$payroll->id}}/edit"><i class="fa fa-pen"></i></a>   
-                                            <form action="/payrolls/{{$payroll->id}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                &nbsp;
-                                                <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
-                                            </form>
-                                            </td>
+                                            <th class="extras">{{ $allowance->allowance_name }}</th>
+                                            <td class="amount">GHc {{ number_format($allowance->allowance_amount, 2) }}</td>
                                         </tr>
                                     @endforeach
-                                </tbody>
-                            </table>
+                                    <tr>
+                                        <th class="extras titles">Deductions</th>
+                                    </tr>
+                                    @foreach ($deductions as $deduction)
+                                        <tr>
+                                            <th class="extras">{{ $deduction->deduction_name }}</th>
+                                            <td class="amount">GHc {{ number_format($deduction->deduction_amount, 2) }}</td>
+                                        </tr>
+                                    @endforeach
+                                    <tr>
+                                        <th class="extras titles">Net Salary</th>
+                                        <td class="amount final">GHc {{ number_format($payroll_item->net_salary, 2) }}</td>
+                                    </tr>
+                                </table>
+                                
+                            </div>
+                            </div>
+                            <button class="btn btn-success" style="" onclick="PrintDiv('print')">Print</button>
                         </div>
                     </div>
 
