@@ -9,6 +9,24 @@ use Illuminate\Validation\Rule;
 class UserController extends Controller
 {
     //
+    public function login(){
+            return view('users.login');           
+    }
+
+    // Authenticate User 
+    public function authenticate(Request $request){
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
+
+        if(auth()->attempt($formFields)){
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message','Login Successful!');
+        }
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+    }
     public function create(){
         return view('users.register');
     }
@@ -35,7 +53,15 @@ class UserController extends Controller
         //login
         auth()->login($user);
 
-        return redirect('/')->with('message','User Created Successfully');
+        return redirect('/')->with('message','User Created and logged in  Successfully');
+    }
+
+    public function logout(Request $request){
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('message','Logout Success!');
     }
 
       // Show single user

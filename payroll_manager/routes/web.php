@@ -28,225 +28,229 @@ use App\Http\Controllers\EmployeeDeductionController;
 |
 */
 
+Route::get('/login',[UserController::class,'login'])->name('login');
+
+Route::post('/logout',[UserController::class,'logout']);
+Route::post('/users/authenticate',[UserController::class,'authenticate']);
 
 //dashboard
- Route::get('/', [DashboardController::class, 'index']);
+ Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
- Route::get('/employee_distro', [DashboardController::class, 'employee_distro']);
+ Route::get('/employee_distro', [DashboardController::class, 'employee_distro'])->middleware('auth');
 
 //all departments
-Route::get('/departments', [DepartmentController::class, 'index']);
+Route::get('/departments', [DepartmentController::class, 'index'])->middleware('auth');
 
 // Show create department form
-Route::get('/departments/create', [DepartmentController::class, 'create']);
+Route::get('/departments/create', [DepartmentController::class, 'create'])->middleware('auth');
 
 // Store department data
-Route::post('/departments', [DepartmentController::class, 'store']);
+Route::post('/departments', [DepartmentController::class, 'store'])->middleware('auth');
 
 // single departments
-Route::get('/department/{department}/edit', [DepartmentController::class, 'edit']);
+Route::get('/department/{department}/edit', [DepartmentController::class, 'edit'])->middleware('auth');
 
 // Update department data
-Route::put('/departments/{department}', [DepartmentController::class, 'update']);
+Route::put('/departments/{department}', [DepartmentController::class, 'update'])->middleware('auth');
 
 //Delete designation
-Route::delete('/departments/{department}', [DepartmentController::class, 'destroy']);
+Route::delete('/departments/{department}', [DepartmentController::class, 'destroy'])->middleware('auth');
 
 
 
 //all designations
-Route::get('/designations', [DesignationController::class, 'index']);
+Route::get('/designations', [DesignationController::class, 'index'])->middleware('auth');
 
 // Show create designation form
-Route::get('/designations/create', [DesignationController::class, 'create']);
+Route::get('/designations/create', [DesignationController::class, 'create'])->middleware('auth');
 
 // Store designation data
-Route::post('/designations', [DesignationController::class, 'store']);
+Route::post('/designations', [DesignationController::class, 'store'])->middleware('auth');
 
 // single designation
-Route::get('/designations/{designation}/edit', [DesignationController::class, 'edit']);
+Route::get('/designations/{designation}/edit', [DesignationController::class, 'edit'])->middleware('auth');
 
 // Update designation data
-Route::put('/designations/{designation}', [DesignationController::class, 'update']);
+Route::put('/designations/{designation}', [DesignationController::class, 'update'])->middleware('auth');
 
 
 //Delete designation
-Route::delete('/designations/{designation}', [DesignationController::class, 'destroy']);
+Route::delete('/designations/{designation}', [DesignationController::class, 'destroy'])->middleware('auth');
 
 
 
 //all allowances
-Route::get('/allowances', [AllowanceController::class, 'index']);
+Route::get('/allowances', [AllowanceController::class, 'index'])->middleware('auth');
 
 // Show create department form
-Route::get('/allowances/create', [AllowanceController::class, 'create']);
+Route::get('/allowances/create', [AllowanceController::class, 'create'])->middleware('auth');
 
 // Store department data
-Route::post('/allowances', [AllowanceController::class, 'store']);
+Route::post('/allowances', [AllowanceController::class, 'store'])->middleware('auth');
 
 // single allowances
-Route::get('/allowances/{allowance}/edit', [AllowanceController::class, 'edit']);
+Route::get('/allowances/{allowance}/edit', [AllowanceController::class, 'edit'])->middleware('auth');
 
 // Update allowance data
-Route::put('/allowances/{allowance}', [AllowanceController::class, 'update']);
+Route::put('/allowances/{allowance}', [AllowanceController::class, 'update'])->middleware('auth');
 // Delete allowance data
-Route::delete('/allowances/{allowance}', [AllowanceController::class, 'destroy']);
+Route::delete('/allowances/{allowance}', [AllowanceController::class, 'destroy'])->middleware('auth');
 
     //DEDUCTIONS ROUTE
 
 //all deductions
-Route::get('/deductions', [DeductionController::class, 'index']);
+Route::get('/deductions', [DeductionController::class, 'index'])->middleware('auth');
 
 // Show create deductions form
-Route::get('/deductions/create', [DeductionController::class, 'create']);
+Route::get('/deductions/create', [DeductionController::class, 'create'])->middleware('auth');
 
 // Store deductions data
-Route::post('/deductions', [DeductionController::class, 'store']);
+Route::post('/deductions', [DeductionController::class, 'store'])->middleware('auth');
 
 // single deductions
-Route::get('/deductions/{deduction}/edit', [DeductionController::class, 'edit']);
+Route::get('/deductions/{deduction}/edit', [DeductionController::class, 'edit'])->middleware('auth');
 
 // Update deductions data
-Route::put('/deductions/{deduction}', [DeductionController::class, 'update']);
+Route::put('/deductions/{deduction}', [DeductionController::class, 'update'])->middleware('auth');
 // Delete deductions data
-Route::delete('/deductions/{deduction}', [DeductionController::class, 'destroy']);
+Route::delete('/deductions/{deduction}', [DeductionController::class, 'destroy'])->middleware('auth');
 
 
 
 //all employees
-Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employees', [EmployeeController::class, 'index'])->middleware('auth');
 
 // Show create employees form
-Route::get('/employees/create', [EmployeeController::class, 'create']);
+Route::get('/employees/create', [EmployeeController::class, 'create'])->middleware('auth');
 
 // Store employees data
-Route::post('/employees', [EmployeeController::class, 'store']);
+Route::post('/employees', [EmployeeController::class, 'store'])->middleware('auth');
 
 // single employees
-Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit']);
+Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->middleware('auth');
 
 // Update employees data
-Route::put('/employees/{employee}', [EmployeeController::class, 'update']);
+Route::put('/employees/{employee}', [EmployeeController::class, 'update'])->middleware('auth');
 
 // Delete deductions data
-Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy']);
+Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->middleware('auth');
 
 
 //all users
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/users', [UserController::class, 'index'])->middleware('auth');
 
 // Show create users form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('auth');
 
 // Store employees data
-Route::post('/users', [UserController::class, 'store']);
+Route::post('/users', [UserController::class, 'store'])->middleware('auth');
 
 // single employees
-Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->middleware('auth');
 
 // Update employees data
-Route::put('/users/{user}', [USerController::class, 'update']);
+Route::put('/users/{user}', [USerController::class, 'update'])->middleware('auth');
 
 // Delete deductions data
-Route::delete('/users/{user}', [UserController::class, 'destroy']);
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('auth');
 
 
 //Calendar Routes
-Route::get('calendar-event', [CalendarController::class, 'index']);
+Route::get('calendar-event', [CalendarController::class, 'index'])->middleware('auth');
 
-Route::post('calendar-crud-ajax', [CalendarController::class, 'calendarEvents']);
+Route::post('calendar-crud-ajax', [CalendarController::class, 'calendarEvents'])->middleware('auth');
 
 //Employee Allowances
 
 //all employee allowances
-Route::get('/employee_allowances', [EmployeeAllowanceController::class, 'index']);
+Route::get('/employee_allowances', [EmployeeAllowanceController::class, 'index'])->middleware('auth');
 
 //Show create employees form
-Route::get('/employee_allowances/create', [EmployeeAllowanceController::class, 'create']);
+Route::get('/employee_allowances/create', [EmployeeAllowanceController::class, 'create'])->middleware('auth');
 
 //Store employee allowances
-Route::post('/employee_allowances', [EmployeeAllowanceController::class, 'store']);
+Route::post('/employee_allowances', [EmployeeAllowanceController::class, 'store'])->middleware('auth');
 
 //Show edit employees form
-Route::get('/employee_allowances/{employee_allowance}/edit', [EmployeeAllowanceController::class, 'edit']);
+Route::get('/employee_allowances/{employee_allowance}/edit', [EmployeeAllowanceController::class, 'edit'])->middleware('auth');
 
 //Delete employee allowances
-Route::delete('/employee_allowances/{employee_allowance}', [EmployeeAllowanceController::class, 'destroy']);
+Route::delete('/employee_allowances/{employee_allowance}', [EmployeeAllowanceController::class, 'destroy'])->middleware('auth');
 
 
 //Employee Deductions
 
 //all employee deductions
-Route::get('/employee_deductions', [EmployeeDeductionController::class, 'index']);
+Route::get('/employee_deductions', [EmployeeDeductionController::class, 'index'])->middleware('auth');
 
 //Show create employees form
-Route::get('/employee_deductions/create', [EmployeeDeductionController::class, 'create']);
+Route::get('/employee_deductions/create', [EmployeeDeductionController::class, 'create'])->middleware('auth');
 
 //Store employee deductions
-Route::post('/employee_deductions', [EmployeeDeductionController::class, 'store']);
+Route::post('/employee_deductions', [EmployeeDeductionController::class, 'store'])->middleware('auth');
 
 //Show edit employees form
-Route::get('/employee_deductions/{employee_deduction}/edit', [EmployeeDeductionController::class, 'edit']);
+Route::get('/employee_deductions/{employee_deduction}/edit', [EmployeeDeductionController::class, 'edit'])->middleware('auth');
 
 //Delete employee deductions
-Route::delete('/employee_deductions/{employee_deduction}', [EmployeeDeductionController::class, 'destroy']);
+Route::delete('/employee_deductions/{employee_deduction}', [EmployeeDeductionController::class, 'destroy'])->middleware('auth');
 
 
 //Payroll Types
 
 //all payroll types
-Route::get('/payroll_types', [PayrollTypeController::class, 'index']);
+Route::get('/payroll_types', [PayrollTypeController::class, 'index'])->middleware('auth');
 
 //Show create payroll type form
-Route::get('/payroll_types/create', [PayrollTypeController::class, 'create']);
+Route::get('/payroll_types/create', [PayrollTypeController::class, 'create'])->middleware('auth');
 
 //Store payroll type
-Route::post('/payroll_types', [PayrollTypeController::class, 'store']);
+Route::post('/payroll_types', [PayrollTypeController::class, 'store'])->middleware('auth');
 
 //Show edit payroll type form
-Route::get('/payroll_types/{payroll_type}/edit', [PayrollTypeController::class, 'edit']);
+Route::get('/payroll_types/{payroll_type}/edit', [PayrollTypeController::class, 'edit'])->middleware('auth');
 
 //Update payroll type
-Route::put('/payroll_types/{payroll_type}', [PayrollTypeController::class, 'update']);
+Route::put('/payroll_types/{payroll_type}', [PayrollTypeController::class, 'update'])->middleware('auth');
 
 //Delete payroll type
-Route::delete('/payroll_types/{payroll_type}', [PayrollTypeController::class, 'destroy']);
+Route::delete('/payroll_types/{payroll_type}', [PayrollTypeController::class, 'destroy'])->middleware('auth');
 
 
 //Payrolls
 
 //all payrolls
-Route::get('/payrolls', [PayrollController::class, 'index']);
+Route::get('/payrolls', [PayrollController::class, 'index'])->middleware('auth');
 
 //Show create payroll  form
-Route::get('/payrolls/create', [PayrollController::class, 'create']);
+Route::get('/payrolls/create', [PayrollController::class, 'create'])->middleware('auth');
 
 //Store payroll 
-Route::post('/payrolls', [PayrollController::class, 'store']);
+Route::post('/payrolls', [PayrollController::class, 'store'])->middleware('auth');
 
 //show single payroll
-Route::get('/payrolls/{payroll}/show', [PayrollController::class, 'show']);
+Route::get('/payrolls/{payroll}/show', [PayrollController::class, 'show'])->middleware('auth');
 
 //Show edit payroll form
-Route::get('/payrolls/{payroll}/edit', [PayrollController::class, 'edit']);
+Route::get('/payrolls/{payroll}/edit', [PayrollController::class, 'edit'])->middleware('auth');
 
 //Update payroll 
-Route::put('/payrolls/{payroll}', [PayrollController::class, 'update']);
+Route::put('/payrolls/{payroll}', [PayrollController::class, 'update'])->middleware('auth');
 
 //Update payroll status 
-Route::get('/payrolls/{payroll}/status', [PayrollController::class, 'updateStatus']);
+Route::get('/payrolls/{payroll}/status', [PayrollController::class, 'updateStatus'])->middleware('auth');
 
 //Delete payroll 
-Route::delete('/payrolls/{payroll}', [PayrollController::class, 'destroy']);
+Route::delete('/payrolls/{payroll}', [PayrollController::class, 'destroy'])->middleware('auth');
 
 
 //Payroll Items
 
 //Store payroll items 
-Route::get('/payroll_items/{payroll}', [PayrollItemsController::class, 'store']);
+Route::get('/payroll_items/{payroll}', [PayrollItemsController::class, 'store'])->middleware('auth');
 
 //Show single payroll item
-Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class, 'show']); 
+Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class, 'show'])->middleware('auth'); 
 
 
 

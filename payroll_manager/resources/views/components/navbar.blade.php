@@ -36,21 +36,27 @@
                      </ul>
                  </div>
              </li>
+             @auth
           <li class="dropdown">
              <a href="#" data-bs-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <div class="avatar me-1">
                    <img src="{{asset('assets/images/admin.png')}}" alt="" srcset="">
                 </div>
-                <div class="d-none d-md-block d-lg-inline-block text-white">Hi, Admin</div>
+                <div class="d-none d-md-block d-lg-inline-block text-white">Hi, {{auth()->user()->username}}</div>
              </a>
              <div class="dropdown-menu dropdown-menu-end">
                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
                 <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login.html"><i data-feather="log-out"></i> Logout</a>
+                <form method="POST" action="/logout">
+                    @csrf
+                    <button class="dropdown-item" type="submit"><i data-feather="log-out"></i> Logout</button>
+
+                </form>
              </div>
           </li>
+          @endauth
        </ul>
     </div>
  </nav>
