@@ -23,24 +23,27 @@ class PayrollItemsController extends Controller
        
 
        foreach ($employees as $employee) {
-            $total_allowance = 0;
-            $total_deduction = 0;
 
-            $allowances = EmployeeAllowance::where('employee_id', $employee->employee_id)->get();
+            $allowances = EmployeeAllowance::where('employee_id', $employee->employee_id)
+                            ->join('allowances', 'employee_allowances.allowance_id', '=', 'allowances.id')
+                            ->sum('allowance_amount');
 
-            $deductions = EmployeeDeduction::where('employee_id', $employee->employee_id)->get();
-
-            foreach ($allowances as $allowance) {
-                $allowance_amount = Allowance::where('id', $allowance->allowance_id)->sum('allowance_amount');
-                $total_allowance = $total_allowance + $allowance_amount;         
+            $deductions = EmployeeDeduction::where('employee_id', $employee->employee_id)
+                            ->join('deductions', 'employee_deductions.deduction_id', '=', 'deductions.id')
+                            ->where('deductions.mode', '=', 'fixed')
+                            ->sum('deduction_amount');
+            
+            $percent_deductions = EmployeeDeduction::where('employee_id', $employee->employee_id)
+                            ->join('deductions', 'employee_deductions.deduction_id', '=', 'deductions.id')
+                            ->where('deductions.mode', '=', 'percentage')
+                            ->get('deduction_amount');
+            
+            foreach($percent_deductions as $deduction) {
+                $amount = ($deduction->deduction_amount/100)*$employee->salary;
+                $deductions = $deductions + $amount;
             }
 
-            foreach ($deductions as $deduction) {
-                $deduction_amount = Deduction::where('id',$deduction->deduction_id)->sum('deduction_amount');
-                $total_deduction = $total_deduction + $deduction_amount;  
-            }
-
-            $net_salary = $employee->salary + $total_allowance - $total_deduction;
+            $net_salary = $employee->salary + $allowances - $deductions;
 
             $formFields = [
                 'payroll_id' => $ref,
@@ -48,18 +51,15 @@ class PayrollItemsController extends Controller
                 'total_days' => '10',
                 'days_worked' => '9',
                 'salary' => $employee->salary,
-                'total_allowance' => $total_allowance,
-                'total_deduction' => $total_deduction,
+                'total_allowance' => $allowances,
+                'total_deduction' => $deductions,
                 'net_salary' => $net_salary
             ];
             
             PayrollItems::create($formFields);
        }
        
-      return redirect("/payrolls/$ref/status");
-        
-
-        
+      return redirect("/payrolls/$ref/status");   
     }
 
 

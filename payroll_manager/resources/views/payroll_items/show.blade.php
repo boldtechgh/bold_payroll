@@ -34,54 +34,71 @@
                              <table>
                                     <tr>
                                         <th>Employee ID</th>
-                                        <td>{{ $payroll_item->employee_id }}</td>
+                                        <td colspan="2">{{ $payroll_item->employee_id }}</td>
                                     </tr>
                                     <tr>
                                         <th>Employee Name</th>
-                                        <td>{{ $payroll_item->last_name }} {{ $payroll_item->middle_name }} {{ $payroll_item->first_name }}</td>
+                                        <td colspan="2">{{ $payroll_item->last_name }} {{ $payroll_item->middle_name }} {{ $payroll_item->first_name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Department</th>
-                                        <td>{{ $payroll_item->department_name }}</td>
+                                        <td colspan="2">{{ $payroll_item->department_name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Designation</th>
-                                        <td>{{ $payroll_item->designation_name }}</td>
+                                        <td colspan="2">{{ $payroll_item->designation_name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Payroll Date</th>
-                                        <td>{{ date_format(date_create($payroll_item->created_at), "d/M/Y") }}</td>
+                                        <td colspan="2">{{ date_format(date_create($payroll_item->created_at), "d/M/Y") }}</td>
                                     </tr>
                                     <tr>
                                         <th>Pay Period Start</th>
-                                        <td>{{ date_format(date_create($payroll_item->start_date), "d/M/Y") }}</td>
+                                        <td colspan="2">{{ date_format(date_create($payroll_item->start_date), "d/M/Y") }}</td>
                                     </tr>
                                     <tr>
                                         <th>Pay Period End</th>
-                                        <td>{{ date_format(date_create($payroll_item->end_date), "d/M/Y") }}</td>
+                                        <td colspan="2">{{ date_format(date_create($payroll_item->end_date), "d/M/Y") }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <td class="extras titles">Payments</td>
+                                        <td class="extras titles">Deductions</td>
                                     </tr>
                                     <tr>
                                         <th class="extras">Basic Salary</th>
                                         <td class="amount">GHc {{ number_format($payroll_item->salary, 2) }}</td>
+                                        <td class="amount"></td>
                                     </tr>
-                                    <tr>
-                                        <th class="extras titles">Allowances</th>
-                                    </tr>
+                                    
                                     @foreach ($allowances as $allowance)
                                         <tr>
                                             <th class="extras">{{ $allowance->allowance_name }}</th>
                                             <td class="amount">GHc {{ number_format($allowance->allowance_amount, 2) }}</td>
+                                            <td></td>
                                         </tr>
                                     @endforeach
-                                    <tr>
-                                        <th class="extras titles">Deductions</th>
-                                    </tr>
+                                   
                                     @foreach ($deductions as $deduction)
+                                        @if ($deduction->mode == 'fixed')
                                         <tr>
                                             <th class="extras">{{ $deduction->deduction_name }}</th>
+                                            <td></td>
                                             <td class="amount">GHc {{ number_format($deduction->deduction_amount, 2) }}</td>
                                         </tr>
+                                        @else
+                                        <tr>
+                                            <th class="extras">{{ $deduction->deduction_name }} - {{ $deduction->deduction_amount }}%</th>
+                                            <td></td>
+                                            <td class="amount">GHc {{ number_format(($deduction->deduction_amount/100)*$payroll_item->salary, 2) }}</td>
+                                        </tr>
+                                        @endif
                                     @endforeach
+                                    <tr>
+                                        <th class="extras titles">Totals</th>
+                                        <td class="amount totals">GHc {{number_format($payroll_item->total_allowance+$payroll_item->salary, 2)}}</td>
+                                        <td class="amount totals">GHc {{number_format($payroll_item->total_deduction, 2)}}</td>
+                                    </tr>
                                     <tr>
                                         <th class="extras titles">Net Salary</th>
                                         <td class="amount final">GHc {{ number_format($payroll_item->net_salary, 2) }}</td>

@@ -27,9 +27,11 @@ class UserController extends Controller
         }
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
+    
     public function create(){
         return view('users.register');
     }
+
     public function index(){
         return view('users.index',['users' => User::latest()->get()]);
     }

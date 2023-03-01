@@ -1381,13 +1381,23 @@ footer {
     text-align: right;
     font-weight: 400;
 }
+.payslip table td.titles {
+    text-align: right;
+    font-weight: bold;
+    font-size: 14px;
+}
 .payslip table th.titles {
+    text-align: right;
     font-weight: bold;
     font-size: 14px;
 }
 .payslip table td.final {
     font-weight: bold;
     font-size: 14px;
+}
+.payslip table td.totals {
+    font-weight: bold;
+    font-size: 12px;
 }
 .payslip button {
     display: block;
