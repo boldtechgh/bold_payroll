@@ -72,11 +72,20 @@
                                     </tr>
                                     
                                     @foreach ($allowances as $allowance)
+                                        @if ($allowance->mode == 'fixed')
                                         <tr>
                                             <th class="extras">{{ $allowance->allowance_name }}</th>
                                             <td class="amount">GHc {{ number_format($allowance->allowance_amount, 2) }}</td>
                                             <td></td>
                                         </tr>
+                                        @else
+                                        <tr>
+                                            <th class="extras">{{ $allowance->allowance_name }} - {{ $allowance->allowance_amount }}%</th>
+                                            
+                                            <td class="amount">GHc {{ number_format(($allowance->allowance_amount/100)*$payroll_item->salary, 2) }}</td>
+                                            <td></td>
+                                        </tr>
+                                        @endif
                                     @endforeach
                                    
                                     @foreach ($deductions as $deduction)
@@ -101,7 +110,7 @@
                                     </tr>
                                     <tr>
                                         <th class="extras titles">Net Salary</th>
-                                        <td class="amount final">GHc {{ number_format($payroll_item->net_salary, 2) }}</td>
+                                        <td class="amount final" colspan="2">GHc {{ number_format($payroll_item->net_salary, 2) }}</td>
                                     </tr>
                                 </table>
                                 
