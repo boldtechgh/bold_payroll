@@ -47,15 +47,52 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group has-icon-left">
-                                <label for="email-id-icon">Deduction Amount</label>
+                                <label for="first-name-icon">Deduction Type</label>
                                 <div class="position-relative">
-                                    <input type="text" class="form-control" placeholder="Deduction Amount" id="email-id-icon" name="deduction_amount" value="{{$deduction->deduction_amount}}">
+                                    <select name="mode" id="mode" value="{{old('deduction_type')}}" class="form-control">
+                                        @if ($deduction->mode == 'full')
+                                            <option value="{{$deduction->deduction_type}}">Full</option>
+                                        @else
+                                            <option value="{{$deduction->deduction_type}}">Split</option>  
+                                        @endif                                         
+                                        <option value="full">Full</option>
+                                        <option value="split">Split</option>
+                                    
+                                </select>
                                     <div class="form-control-icon">
                                         <i class="fa fa-table"></i>
                                     </div>
                                 </div>
                             </div>
-                            @error('deduction_amount')
+                            @error('deduction_type')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group has-icon-left">
+                                <label for="email-id-icon">Employer Amount</label>
+                                <div class="position-relative">
+                                    <input type="text" class="form-control" placeholder="Employer Amount" id="email-id-icon" name="employer_amount" value="{{$deduction->employer_amount}}">
+                                    <div class="form-control-icon">
+                                        <i class="fa fa-table"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('employer_amount')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group has-icon-left">
+                                <label for="email-id-icon">Employee Amount</label>
+                                <div class="position-relative">
+                                    <input type="text" class="form-control" placeholder="Employee Amount" id="email-id-icon" name="employee_amount" value="{{$deduction->employee_amount}}">
+                                    <div class="form-control-icon">
+                                        <i class="fa fa-table"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            @error('employee_amount')
                             <p class="text-danger text-mt-1">{{$message}}</p>
                             @enderror
                         </div>

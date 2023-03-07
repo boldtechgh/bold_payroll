@@ -24,7 +24,9 @@ class DeductionController extends Controller
         // dd($request->all());
         $formFields = $request->validate([
             'deduction_name' => ['required', Rule::unique('deductions','deduction_name')],
-            'deduction_amount' => 'required',
+            'deduction_type' => 'required',
+            'employer_amount' => 'required',
+            'employee_amount' => 'required',
             'deduction_description' => 'required',
             'start_date' => '',
             'end_date' => '',

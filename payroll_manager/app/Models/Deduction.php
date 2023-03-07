@@ -9,5 +9,5 @@ class Deduction extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['deduction_name', 'deduction_amount', 'deduction_description','start_date','end_date','mode'];
+    protected $fillable = ['deduction_name', 'deduction_type', 'employer_amount', 'employee_amount', 'deduction_description','start_date','end_date','mode'];
 }

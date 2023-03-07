@@ -76,13 +76,13 @@ class PayrollItemsController extends Controller
                             ->get();
 
             foreach($deductions as $deduction) {
-                $total_deduction = $total_deduction + $deduction->deduction_amount;
+                $total_deduction = $total_deduction + $deduction->employee_amount;
 
                 $formFields = [
                 'payroll_id' => $ref,
                 'employee_id' => $employee->id,
                 'deduction_name' => $deduction->deduction_name,
-                'deduction_amount' => $deduction->deduction_amount,
+                'deduction_amount' => $deduction->employee_amount,
                 'mode' => $deduction->mode
                 ];
                 
@@ -97,14 +97,14 @@ class PayrollItemsController extends Controller
                             ->get();
             
             foreach($percent_deductions as $deduction) {
-                $amount = ($deduction->deduction_amount/100)*$employee->salary;
+                $amount = ($deduction->employee_amount/100)*$employee->salary;
                 $total_deduction = $total_deduction + $amount;
 
                 $formFields = [
                 'payroll_id' => $ref,
                 'employee_id' => $employee->id,
                 'deduction_name' => $deduction->deduction_name,
-                'deduction_amount' => $deduction->deduction_amount,
+                'deduction_amount' => $deduction->employee_amount,
                 'mode' => $deduction->mode
                 ];
                 

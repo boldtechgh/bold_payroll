@@ -1403,3 +1403,26 @@ footer {
     display: block;
     margin: 20px auto;
 }
+.reports {
+    height: 80vh;
+}
+
+.reports .card {
+    height: 30vh;
+}
+
+.reports .report_options {
+    padding-left: 80px;
+}
+
+.reports .report_options ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.reports .report_options li {
+    margin-bottom: 8px;
+    text-decoration: none;
+    font-size: 18px;
+}

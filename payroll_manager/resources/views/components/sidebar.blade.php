@@ -6,7 +6,7 @@
       </div>
        <div class="sidebar-menu">
           <ul class="menu">
-             <li class="sidebar-item active ">
+             <li class="sidebar-item">
                 <a href="/" class='sidebar-link'>
                 <i class="fa fa-home text-success"></i>
                 <span>Dashboard</span>
@@ -114,13 +114,6 @@
              </li> --}}
              <li class="sidebar-item has-sub">
                 <a href="#" class="sidebar-link">
-                  <i class="fa fa-money-bill text-success"></i>
-                  <span>Payroll</span>
-                </a>
-                <ul class="submenu">
-                  
-                   <li class="sidebar-item has-sub">
-                <a href="#" class="sidebar-link">
                   <i class="fa fa-building text-success"></i>
                   <span>Allowances</span>
                 </a>
@@ -161,7 +154,12 @@
                 </ul>
               </li>
              </li>
-
+             <li class="sidebar-item has-sub">
+                <a href="#" class="sidebar-link">
+                  <i class="fa fa-money-bill text-success"></i>
+                  <span>Payroll</span>
+                </a>
+                <ul class="submenu">
                   <li class="sidebar-item">
                     <a href="/payrolls/create">Generate Payroll</a>
                   </li>
@@ -222,7 +220,7 @@
                 </ul>
              </li>
              <li class="sidebar-item ">
-                <a href="reports.html" class='sidebar-link'>
+                <a href="/reports" class='sidebar-link'>
                 <i class="fa fa-chart-bar text-success"></i>
                 <span>Reports</span>
                 </a>

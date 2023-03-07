@@ -23,8 +23,10 @@
                                 <thead>
                                     <tr>
                                         <th>Deduction Name</th>
-                                        <th>Deduction Amount</th>
-                                        <th>description</th>
+                                        <th>Deduction Type</th>
+                                        <th>Employer Amount</th>
+                                        <th>Employee Amount</th>
+                                        <th>Mode of Calculation</th>
                                         <th>Creation Date</th>
                                         <th>Action</th>
                                     </tr>
@@ -34,15 +36,15 @@
                                      @foreach ($deductions as $deduction)
                                     <tr>
                                         <td>{{$deduction->deduction_name}}</td>
-                                        <td>{{$deduction->deduction_amount}}</td>
-                                        <td>{{$deduction->deduction_description}}</td>
+                                        <td>{{$deduction->deduction_type}}</td>
+                                        <td>{{$deduction->employer_amount}}</td>
+                                        <td>{{$deduction->employee_amount}}</td>
+                                        <td>{{$deduction->mode}}</td>
                                         <td>{{$deduction->created_at}}</td>
                                         <td class="d-flex"><a type="button" class="btn btn-info me-1 mb-1" href="/deductions/{{$deduction->id}}/edit"><i class="fa fa-pen"></i></a>   
                                             <form action="/deductions/{{$deduction->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                {{-- <a type="submit" href="/deductions/{{$deduction->id}}" data-method="delete"><i class="fa fa-trash text-danger"></i></a> --}}
-                                            {{-- <button type="submit" class="btn btn-primary me-1 mb-1">Delete</button> --}}
                                             &nbsp;
                                             <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
                                         </form>

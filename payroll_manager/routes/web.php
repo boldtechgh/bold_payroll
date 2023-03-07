@@ -5,6 +5,7 @@ use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AllowanceController;
@@ -251,6 +252,12 @@ Route::get('/payroll_items/{payroll}', [PayrollItemsController::class, 'store'])
 
 //Show single payroll item
 Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class, 'show'])->middleware('auth'); 
+
+
+//Reports
+
+
+Route::get('/reports', [ReportsController::class, 'index'])->middleware('auth');
 
 
 
