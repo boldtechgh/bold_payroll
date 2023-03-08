@@ -47,7 +47,7 @@
 		  </script>
 	 </head>
 <body>
-	<section class="vh-100" style="background-color: #6c828d;">
+	<section class="vh-100" style="background-color: rgb(230, 230, 230);">
 		<div class="container py-5 h-100">
 		  <div class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col col-xl-10">

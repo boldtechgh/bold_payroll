@@ -1,7 +1,7 @@
 <div id="sidebar" class='active'>
     <div class="sidebar-wrapper active">
-      <div class="sidebar-header">
-              <i class="fa fa-money-bill text-primary me-4"></i>
+      <div class="sidebar-header text-white">
+              <i class="fa fa-money-bill me-4"></i>
                 <span>PAYROLL</span>
       </div>
        <div class="sidebar-menu">
@@ -226,6 +226,9 @@
                 </a>
              </li>
           </ul>
+          <div>
+            <h2>Boom</h2>
+          </div>
        </div>
        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
