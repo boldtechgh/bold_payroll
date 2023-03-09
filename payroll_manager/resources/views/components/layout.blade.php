@@ -17,6 +17,9 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
       <style type="text/css">
         .notif:hover{
           background-color: rgba(0,0,0,0.1);
@@ -43,6 +46,26 @@
               myWindow.print();
               myWindow.close();
             };
+          }
+        </script>
+        <script>
+          function exportToExcel() {
+            // Get the HTML table element
+            const table = document.getElementById("myTable");
+            
+            // Create a new Workbook object
+            const workbook = XLSX.utils.book_new();
+            
+            // Convert the table to a worksheet
+            const worksheet = XLSX.utils.table_to_sheet(table);
+            
+            // Add the worksheet to the Workbook
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+            
+            // Save the Workbook as an Excel file
+            const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+            const excelBlob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+            saveAs(excelBlob, "myTable.xlsx");
           }
         </script>
    </head>

@@ -259,5 +259,11 @@ Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class,
 
 Route::get('/reports', [ReportsController::class, 'index'])->middleware('auth');
 
+//all payrolls
+Route::get('/reports/payroll', [ReportsController::class, 'getPayrolls'])->middleware('auth');
+
+//Show single payroll report
+Route::get('/reports/payroll/{payroll_item}/show', [ReportsController::class, 'show'])->middleware('auth');
+
 
 

@@ -11,7 +11,7 @@
                         <div class="d-flex flex-column justify-content-between p-md-1">
                         <div class="d-flex flex-row mb-4">
                             <div class="align-self-center">
-                            <i class="fa fa-users text-warning fa-3x me-4"></i>
+                            <i class="fa fa-money-bill-alt text-warning fa-3x me-4"></i>
                             </div>
                             <div>
                             <h4>Payroll</h4>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="report_options">
                             <ul>
-                                <li><a href="">Payroll Report</a> </li>
+                                <li><a href="/reports/payroll">Payroll Report</a> </li>
                                 <li><a href="">Stats</a> </li>
                             </ul>
                         </div>
@@ -34,7 +34,7 @@
                         <div class="d-flex flex-column justify-content-between p-md-1">
                         <div class="d-flex flex-row mb-4">
                             <div class="align-self-center">
-                            <i class="fa fa-building text-success fa-3x me-4"></i>
+                            <i class="fa fa-balance-scale text-success fa-3x me-4"></i>
                             </div>
                             <div>
                             <h4>SSNIT</h4>
@@ -58,7 +58,7 @@
                         <div class="d-flex flex-column justify-content-between p-md-1">
                         <div class="d-flex flex-row mb-4">
                             <div class="align-self-center">
-                            <i class="fa fa-user text-info fa-3x me-4"></i>
+                            <i class="fa fa-coins text-info fa-3x me-4"></i>
                             </div>
                             <div>
                             <h4>GRA</h4>
