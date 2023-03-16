@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PensionController;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
@@ -265,5 +266,22 @@ Route::get('/reports/payroll', [ReportsController::class, 'getPayrolls'])->middl
 //Show single payroll report
 Route::get('/reports/payroll/{payroll_item}/show', [ReportsController::class, 'show'])->middleware('auth');
 
+
+//Pensions
+Route::get('/reports/ssnit/settings', [PensionController::class, 'index'])->middleware('auth');
+
+//Store pension tier 
+Route::post('/ssnit/settings', [PensionController::class, 'store'])->middleware('auth');
+
+//Update pension tier 
+Route::put('/ssnit/settings/{tier}', [PensionController::class, 'update'])->middleware('auth');
+
+//Delete pension tier 
+Route::delete('/ssnit/settings/{pension}', [PensionController::class, 'destroy'])->middleware('auth');
+
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

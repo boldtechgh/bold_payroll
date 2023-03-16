@@ -43,8 +43,9 @@
                         </div>
                             <div class="report_options">
                             <ul>
-                                <li><a href="">SSNIT Report</a> </li>
+                                <li><a href="/reports/ssnit">SSNIT Report</a> </li>
                                 <li><a href="">Stats</a> </li>
+                                <li><a href="/reports/ssnit/settings">Settings</a></li>
                             </ul>
                         </div>
                         
