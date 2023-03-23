@@ -37,14 +37,22 @@
                             <i class="fa fa-balance-scale text-success fa-3x me-4"></i>
                             </div>
                             <div>
-                            <h4>SSNIT</h4>
+                            <h4>Pensions</h4>
                             <h2 class="h1 mb-0"></h2>
                             </div>
                         </div>
                             <div class="report_options">
                             <ul>
-                                <li><a href="/reports/ssnit">SSNIT Report</a> </li>
-                                <li><a href="">Stats</a> </li>
+                                <li><button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Report</button> 
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        @foreach ($tiers as $tier)
+                                            <a class="dropdown-item" href="/reports/snnit/{{$tier->id}}">{{$tier->pension_tier}}</a>                                        
+                                            <div class="dropdown-divider"></div>
+                                        @endforeach
+                                    </div>
+                                </li>
+                                
+                                {{-- <li><a href="">Stats</a> </li> --}}
                                 <li><a href="/reports/ssnit/settings">Settings</a></li>
                             </ul>
                         </div>

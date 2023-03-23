@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pension;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class PensionController extends Controller
@@ -51,6 +52,26 @@ class PensionController extends Controller
         
         return back()->with('message','Tier Updated Sucessfully!');
     }
+
+    public function generate($id)
+    {
+        $pension = Pension::find($id);
+        $employees = Employee::get();
+        $total_contribution = 0;
+        $total_salary = 0;
+        
+        foreach($employees as $employee) {
+            $total_contribution += ($pension->percentage/100)*$employee->salary;
+            $total_salary += $employee->salary;
+        }
+ 
+        return view('reports.pension.generate',[
+            'pension' => $pension,
+            'employees' => $employees,
+            'total_contribution' => $total_contribution,
+            'total_salary' => $total_salary
+       ]);
+    } 
 
      public function destroy($id)
     {

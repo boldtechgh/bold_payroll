@@ -30,7 +30,7 @@
                                 <tbody>
                                     @foreach ($pensions as $pension)
                                         <tr>
-                                            <form method="POST" action="/ssnit/settings/{{$pension->id}}">
+                                            <form action="/ssnit/settings/{{$pension->id}}" method="POST">
                                             @csrf
                                             @method('PUT')
                                                 <td>
@@ -65,8 +65,8 @@
                                                 </td>
                                                                                        
                                                 <td class='d-flex'>
-                                                <button type="submit" class="btn btn-info me-1 mb-1">Update</button>
-                                            </form>
+                                                <button type="submit" class="btn btn-info me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to update this tier?') }}')">Update</button>
+                                            
                                                 <form action="/ssnit/settings/{{$pension->id}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -75,6 +75,7 @@
                                                 </form>
                                                 </td>
                                         </tr>
+                                        </form>
                                     @endforeach
                                 </tbody>
                             </table>

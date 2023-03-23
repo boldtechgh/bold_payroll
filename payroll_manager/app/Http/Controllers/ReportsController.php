@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payroll;
+use App\Models\Pension;
 use App\Models\Employee;
 use App\Models\PayrollType;
 use App\Models\PayrollItems;
@@ -12,13 +13,15 @@ class ReportsController extends Controller
 {
     //
     public function index(){
-        return view('reports.index');
+        return view('reports.index', [
+            'tiers' => Pension::get()
+        ]);
     }
 
     public function getPayrolls(){
         return view('reports.payroll.index',[
             'payrolls' => Payroll::latest()->get(),
-            'payrollTypes' => PayrollType::latest()->get()
+            'payrollTypes' => PayrollType::latest()->get(),
        ]);
     }
 

@@ -270,6 +270,9 @@ Route::get('/reports/payroll/{payroll_item}/show', [ReportsController::class, 's
 //Pensions
 Route::get('/reports/ssnit/settings', [PensionController::class, 'index'])->middleware('auth');
 
+//Tier Reports
+Route::get('reports/snnit/{tier}', [PensionController::class, 'generate'])->middleware('auth');
+
 //Store pension tier 
 Route::post('/ssnit/settings', [PensionController::class, 'store'])->middleware('auth');
 
