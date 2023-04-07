@@ -32,7 +32,7 @@ class PensionController extends Controller
 
     // Update pension data
      public function update(Request $request, $id){
-        dd($request->all());
+        // dd($request->all());
         $formFields = $request->validate([
             
             'pension_tier' => 'required',
