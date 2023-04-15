@@ -122,110 +122,11 @@
                                                 <div class="position-relative">
                                                     <input type="text" name="email" value="{{old('email')}}" class="form-control" placeholder="email" id="first-name-icon">
                                                     <div class="form-control-icon">
-                                                        <i class="fa fa-vcard-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @error('email')
-                            <p class="text-danger text-mt-1">{{$message}}</p>
-                            @enderror
-                                        </div>
-                                        <div class="col-md-3 col-12">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">SSN</label>
-                                                <div class="position-relative">
-                                                    <input type="text" name="ssn" value="{{old('ssn')}}" class="form-control" placeholder="SSN" id="first-name-icon">
-                                                    <div class="form-control-icon">
-                                                        <i class="fa fa-vcard-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @error('ssn')
-                            <p class="text-danger text-mt-1">{{$message}}</p>
-                            @enderror
-                                        </div>
-                                        <div class="col-md-3 col-12">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Digital Address</label>
-                                                <div class="position-relative">
-                                                    <input type="text" name="d_address" value="{{old('d_address')}}" class="form-control" placeholder="Digital Address" id="first-name-icon">
-                                                    <div class="form-control-icon">
-                                                        <i class="fa fa-vcard-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @error('d_address')
-                            <p class="text-danger text-mt-1">{{$message}}</p>
-                            @enderror
-                                        </div>
-                                        <div class="col-md-3 col-12">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Next of Kin</label>
-                                                <div class="position-relative">
-                                                    <input type="text" name="next_of_kin" value="{{old('next_of_kin')}}" class="form-control" placeholder="Next Of Kin" id="first-name-icon">
-                                                    <div class="form-control-icon">
-                                                        <i class="fa fa-vcard-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @error('next_of_kin')
-                            <p class="text-danger text-mt-1">{{$message}}</p>
-                            @enderror
-                                        </div>
-                                        <div class="col-md-3 col-12">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Contact of Next of Kin</label>
-                                                <div class="position-relative">
-                                                    <input type="text" name="contact_n" value="{{old('contact_n')}}" class="form-control" placeholder="Contact Of Next of Kin" id="first-name-icon">
-                                                    <div class="form-control-icon">
-                                                        <i class="fa fa-vcard-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @error('contact_n')
-                            <p class="text-danger text-mt-1">{{$message}}</p>
-                            @enderror
-                                        </div>
-                                        <div class="col-md-3 col-6">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Hometown</label>
-                                                <div class="position-relative">
-                                                    <input type="text" name="hometown" value="{{old('hometown')}}" class="form-control" placeholder="Hometown" id="first-name-icon">
-                                                    <div class="form-control-icon">
-                                                        <i class="fa fa-vcard-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @error('hometown')
-                            <p class="text-danger text-mt-1">{{$message}}</p>
-                            @enderror
-                                        
-                                        </div>
-                                        <div class="col-md-3 col-6">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Region</label>
-                                                <div class="position-relative">
-                                                    <input type="text" name="region" value="{{old('region')}}" class="form-control" placeholder="Region" id="first-name-icon">
-                                                    <div class="form-control-icon">
-                                                        <i class="fa fa-vcard-o"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @error('region')
-                            <p class="text-danger text-mt-1">{{$message}}</p>
-                            @enderror
-                                        </div>
-                                        <div class="col-md-3 col-12">
-                                            <div class="form-group has-icon-left">
-                                                <label for="first-name-icon">Account Number</label>
-                                                <div class="position-relative">
-                                                    <input type="text" name="account_number" value="{{old('account_number')}}" class="form-control" placeholder="Account Number" id="first-name-icon">
-                                                    <div class="form-control-icon">
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
                                                 </div>
                                             </div>
-                                            @error('account_number')
+                                            @error('email')
                             <p class="text-danger text-mt-1">{{$message}}</p>
                             @enderror
                                         </div>
@@ -301,6 +202,34 @@
                             <p class="text-danger text-mt-1">{{$message}}</p>
                             @enderror
                                         </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group has-icon-left">
+                                                <label for="first-name-icon">Username</label>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control" name="username" value="{{old('username')}}" placeholder="username" id="first-name-icon">
+                                                    <div class="form-control-icon">
+                                                        <i class="fa fa-user"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @error('username')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group has-icon-left">
+                                                <label for="first-name-icon">Password</label>
+                                                <div class="position-relative">
+                                                    <input type="password" name="password" value="{{old('[password]')}}" class="form-control" placeholder="passsword" id="first-name-icon">
+                                                    <div class="form-control-icon">
+                                                        <i class="fa fa-key"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @error('password')
+                            <p class="text-danger text-mt-1">{{$message}}</p>
+                            @enderror
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>

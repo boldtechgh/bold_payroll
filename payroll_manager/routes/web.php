@@ -18,6 +18,7 @@ use App\Http\Controllers\PayrollTypeController;
 use App\Http\Controllers\PayrollItemsController;
 use App\Http\Controllers\EmployeeAllowanceController;
 use App\Http\Controllers\EmployeeDeductionController;
+use App\Http\Controllers\OrganizationController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -84,10 +85,10 @@ Route::delete('/designations/{designation}', [DesignationController::class, 'des
 //all allowances
 Route::get('/allowances', [AllowanceController::class, 'index'])->middleware('auth');
 
-// Show create department form
+// Show create allowance form
 Route::get('/allowances/create', [AllowanceController::class, 'create'])->middleware('auth');
 
-// Store department data
+// Store allowance data
 Route::post('/allowances', [AllowanceController::class, 'store'])->middleware('auth');
 
 // single allowances
@@ -142,10 +143,10 @@ Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->
 Route::get('/users', [UserController::class, 'index'])->middleware('auth');
 
 // Show create users form
-Route::get('/register', [UserController::class, 'create'])->middleware('auth');
+Route::get('/register', [UserController::class, 'create']);
 
 // Store employees data
-Route::post('/users', [UserController::class, 'store'])->middleware('auth');
+Route::post('/users', [UserController::class, 'store']);
 
 // single employees
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])->middleware('auth');
@@ -281,6 +282,26 @@ Route::put('/ssnit/settings/{tier}', [PensionController::class, 'update'])->midd
 
 //Delete pension tier 
 Route::delete('/ssnit/settings/{pension}', [PensionController::class, 'destroy'])->middleware('auth');
+
+
+    //Organization Route
+//all organization Info
+Route::get('/organizations', [OrganizationController::class, 'index'])->middleware('auth');
+
+// Show create organization info form
+Route::get('/organizations/create', [OrganizationController::class, 'create'])->middleware('auth');
+
+// Store organization data
+Route::post('/organizations', [OrganizationController::class, 'store'])->middleware('auth');
+
+// single organization info
+Route::get('/organizations/{organization}/edit', [OrganizationController::class, 'edit'])->middleware('auth');
+
+// Update organization data
+Route::put('/organizations/{organization}', [OrganizationController::class, 'update'])->middleware('auth');
+// Delete organization data
+Route::delete('/organizations/{organization}', [OrganizationController::class, 'destroy'])->middleware('auth');
+
 
 
 // Auth::routes();
