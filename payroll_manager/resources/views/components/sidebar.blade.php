@@ -18,6 +18,12 @@
                 <span>Organization</span>
                 </a>
                 <ul class="submenu ">
+                <li>
+                      <a href="/organizations/create">Add Organization Info</a>
+                   </li>
+                   <li>
+                      <a href="/organizations">Manage Organization Info</a>
+                   </li>
                    <li>
                       <a href="/departments/create">Add Department</a>
                    </li>

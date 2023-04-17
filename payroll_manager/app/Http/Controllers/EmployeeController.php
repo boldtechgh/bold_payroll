@@ -46,17 +46,12 @@ class EmployeeController extends Controller
             'gender' => 'required',
             'date_of_birth' => 'required',
             'email' => 'required',
-            'ssn' => 'required',
-            'd_address' => 'required',
-            'next_of_kin' => 'required',
-            'contact_n' => 'required',
-            'hometown' => 'required',
-            'region' => 'required',
-            'account_number' => 'required',
             'salary' => 'required',
             'contact' => 'required',
             'designation_id' => 'required',
             'department_id' => 'required',
+            'username' => 'required',
+            'password' => 'required'
         ]);
 
         if($request->hasFile('employee_profile')){
@@ -80,17 +75,12 @@ class EmployeeController extends Controller
             'gender' => 'required',
             'date_of_birth' => 'required',
             'email' => 'required',
-            'ssn' => 'required',
-            'd_address' => 'required',
-            'next_of_kin' => 'required',
-            'contact_n' => 'required',
-            'hometown' => 'required',
-            'region' => 'required',
-            'account_number' => 'required',
             'salary' => 'required',
             'contact' => 'required',
             'designation_id' => 'required',
             'department_id' => 'required',
+            'username' => 'required',
+            'password' => 'required'
         ]);
 
         if($request->hasFile('employee_profile')){
@@ -108,17 +98,12 @@ class EmployeeController extends Controller
         $employee->gender =  $request->get('gender');
         $employee->date_of_birth =  $request->get('date_of_birth');
         $employee->email =  $request->get('email');
-        $employee->ssn = $request->get('ssn');
-        $employee->d_address = $request->get('d_address');
-        $employee->next_of_kin = $request->get('next_of_kin');
-        $employee->contact_n = $request->get('contact_n');
-        $employee->hometown = $request->get('hometown');
-        $employee->region = $request->get('region');
-        $employee->account_number = $request->get('account_number');
         $employee->salary =  $request->get('salary');
         $employee->contact =  $request->get('contact');
-        $employee->department_id = $request->get('department_id');
         $employee->designation_id =  $request->get('designation_id');
+        $employee->department_id = $request->get('department_id');
+        $employee->username = $request->get('username');
+        $employee->password = $request->get('password');
 
         $employee->update($formFields);
         
