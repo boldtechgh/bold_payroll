@@ -157,6 +157,9 @@
                         <li>
                             <a href="/employee_deductions/create">Assign Deductions</a>
                         </li>
+                        <li>
+                            <a href="/deductions/payetax">Pay As You Earn (PAYE)</a>
+                        </li>
                     </ul>
                 </li>
                 </li>

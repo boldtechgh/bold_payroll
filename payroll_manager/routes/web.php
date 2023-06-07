@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\PensionController;
 use App\Models\Department;
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PayeTaxController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\PensionController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\EmployeeController;
@@ -15,10 +16,10 @@ use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\PayrollTypeController;
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PayrollItemsController;
 use App\Http\Controllers\EmployeeAllowanceController;
 use App\Http\Controllers\EmployeeDeductionController;
-use App\Http\Controllers\OrganizationController;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -31,15 +32,15 @@ use App\Http\Controllers\OrganizationController;
 |
 */
 
-Route::get('/login',[UserController::class,'login'])->name('login');
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
-Route::post('/logout',[UserController::class,'logout']);
-Route::post('/users/authenticate',[UserController::class,'authenticate']);
+Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 //dashboard
- Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
- Route::get('/employee_distro', [DashboardController::class, 'employee_distro'])->middleware('auth');
+Route::get('/employee_distro', [DashboardController::class, 'employee_distro'])->middleware('auth');
 
 //all departments
 Route::get('/departments', [DepartmentController::class, 'index'])->middleware('auth');
@@ -99,7 +100,7 @@ Route::put('/allowances/{allowance}', [AllowanceController::class, 'update'])->m
 // Delete allowance data
 Route::delete('/allowances/{allowance}', [AllowanceController::class, 'destroy'])->middleware('auth');
 
-    //DEDUCTIONS ROUTE
+//DEDUCTIONS ROUTE
 
 //all deductions
 Route::get('/deductions', [DeductionController::class, 'index'])->middleware('auth');
@@ -117,6 +118,26 @@ Route::get('/deductions/{deduction}/edit', [DeductionController::class, 'edit'])
 Route::put('/deductions/{deduction}', [DeductionController::class, 'update'])->middleware('auth');
 // Delete deductions data
 Route::delete('/deductions/{deduction}', [DeductionController::class, 'destroy'])->middleware('auth');
+
+//Paye Tax Deductions
+
+//all deductions
+Route::get('/deductions/payetax', [PayeTaxController::class, 'index'])->middleware('auth');
+
+// Show create payetax form
+Route::get('/deductions/payetax/create', [PayeTaxController::class, 'create'])->middleware('auth');
+
+// Store payetax data
+Route::post('/deductions/payetax', [PayeTaxController::class, 'store'])->middleware('auth');
+
+// single payetax
+Route::get('/deductions/payetax/{payetax}/edit', [PayeTaxController::class, 'edit'])->middleware('auth');
+
+// Update payetax data
+Route::put('/deductions/payetax/{payetax}', [PayeTaxController::class, 'update'])->middleware('auth');
+
+// Delete payetax data
+Route::delete('/deductions/payetax/{payetax}', [PayeTaxController::class, 'destroy'])->middleware('auth');
 
 
 
@@ -253,7 +274,7 @@ Route::delete('/payrolls/{payroll}', [PayrollController::class, 'destroy'])->mid
 Route::get('/payroll_items/{payroll}', [PayrollItemsController::class, 'store'])->middleware('auth');
 
 //Show single payroll item
-Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class, 'show'])->middleware('auth'); 
+Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class, 'show'])->middleware('auth');
 
 
 //Reports
@@ -284,7 +305,7 @@ Route::put('/ssnit/settings/{tier}', [PensionController::class, 'update'])->midd
 Route::delete('/ssnit/settings/{pension}', [PensionController::class, 'destroy'])->middleware('auth');
 
 
-    //Organization Route
+//Organization Route
 //all organization Info
 Route::get('/organizations', [OrganizationController::class, 'index'])->middleware('auth');
 
@@ -307,5 +328,3 @@ Route::delete('/organizations/{organization}', [OrganizationController::class, '
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
