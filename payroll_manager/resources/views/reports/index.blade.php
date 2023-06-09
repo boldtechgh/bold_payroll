@@ -73,14 +73,28 @@
                                         <i class="fa fa-coins text-info fa-3x me-4"></i>
                                     </div>
                                     <div>
-                                        <h4>GRA</h4>
+                                        <h4>Taxes</h4>
                                         <h2 class="h1 mb-0"></h2>
                                     </div>
                                 </div>
                                 <div class="report_options">
                                     <ul>
-                                        <li><a href="">Tax report</a> </li>
-                                        <li><a href="">Stats</a> </li>
+                                        <li class="btn-group dropright">
+                                            <button type="button"
+                                                class="btn btn-info dropdown-toggle dropdown-toggle-split"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pay As
+                                                You Earn
+                                            </button>
+                                            <div class="dropdown-menu pre-scrollable dropdown-menu-right">
+                                                @foreach ($payrolls as $payroll)
+                                                    <a class="dropdown-item"
+                                                        href="/reports/paye-tax/{{ $payroll->id }}/show">{{ $payroll->ref_no }}</a>
+                                                    <div class="dropdown-divider"></div>
+                                                @endforeach
+                                            </div>
+                                        </li>
+                                        <li><a href="">Witholding Tax</a> </li>
+                                        <li><a href="">Settings</a> </li>
                                     </ul>
                                 </div>
                             </div>

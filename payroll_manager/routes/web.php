@@ -288,6 +288,10 @@ Route::get('/reports/payroll', [ReportsController::class, 'getPayrolls'])->middl
 //Show single payroll report
 Route::get('/reports/payroll/{payroll_item}/show', [ReportsController::class, 'show'])->middleware('auth');
 
+//Taxes
+Route::get('/reports/paye-tax/{payroll_item}/show', [ReportsController::class, 'showPaye'])->middleware('auth');
+
+
 
 //Pensions
 Route::get('/reports/ssnit/settings', [PensionController::class, 'index'])->middleware('auth');

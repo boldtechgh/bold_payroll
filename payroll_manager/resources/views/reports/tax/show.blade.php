@@ -9,8 +9,6 @@
                     <nav aria-label="breadcrumb" class='breadcrumb-header'>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/reports" class="text-success">Reports</a></li>
-                            <li class="breadcrumb-item"><a href="/reports/payroll" class="text-success">Payrolls</a>
-                            </li>
                             <li class="breadcrumb-item active" aria-current="page">Payroll: {{ $payroll->ref_no }}</li>
                         </ol>
                     </nav>
@@ -45,7 +43,7 @@
                         <h4 class="text-primary mb-4">Period:
                             {{ date_format(date_create($payroll->start_date), 'd/M/Y') }} -
                             {{ date_format(date_create($payroll->end_date), 'd/M/Y') }}</h4>
-                        <h4>Amount Due: GHc {{ number_format($total_net_salary, 2) }}</h4>
+                        <h4>Amount Due: GHc {{ number_format($total_paye_tax, 2) }}</h4>
                     </div>
 
 
@@ -55,11 +53,9 @@
                                 <th>No.</th>
                                 <th>Employee ID</th>
                                 <th>Name</th>
-                                <th>Basic Salary</th>
-                                <th>Total Allowance</th>
-                                <th>Total Deduction</th>
+                                <th>TIN</th>
+                                <th>Gross Salary</th>
                                 <th>PAYE Tax</th>
-                                <th>Net Salary</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,23 +69,18 @@
                                                 {{ $employee->first_name }}</td>
                                         @endif
                                     @endforeach
-                                    <td>GHc {{ number_format($payroll_item->salary, 2) }}</td>
-                                    <td>GHc {{ number_format($payroll_item->total_allowance, 2) }}</td>
-                                    <td>GHc {{ number_format($payroll_item->total_deduction, 2) }}</td>
+                                    <td></td>
+                                    <td>GHc {{ number_format($payroll_item->total_salary, 2) }}</td>
                                     <td>GHc {{ number_format($payroll_item->paye_tax, 2) }}</td>
-                                    <td>GHc {{ number_format($payroll_item->net_salary, 2) }}</td>
                                 </tr>
                             @endforeach
 
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="3"><b>Totals</b> </td>
+                                <td colspan="4"><b>Totals</b> </td>
                                 <td><b>GHc {{ number_format($total_salary, 2) }}</b></td>
-                                <td><b>GHc {{ number_format($total_allowances, 2) }}</b></td>
-                                <td><b>GHc {{ number_format($total_deductions, 2) }}</b></td>
                                 <td><b>GHc {{ number_format($total_paye_tax, 2) }}</b></td>
-                                <td><b>GHc {{ number_format($total_net_salary, 2) }}</b></td>
                             </tr>
                         </tfoot>
                     </table>
