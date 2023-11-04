@@ -30,22 +30,26 @@
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
-                            <tr>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->contact}}</td>
-                                <td>{{$user->user_type}}</td>
-                                <td class="d-flex">
-                                        <a type="button" class="btn btn-info me-1 mb-1" href="/users/{{$user->id}}/edit"><i class="fa fa-pen"></i></a>   
-                                    <form action="/users/{{$user->id}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        &nbsp;
-                                        <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->contact }}</td>
+                                    <td>{{ $user->user_type }}</td>
+                                    <td>{{ $user->status }}</td>
+                                    <td class="d-flex">
+                                        <a type="button" class="btn btn-info me-1 mb-1"
+                                            href="/users/{{ $user->id }}/edit"><i class="fa fa-pen"></i></a>
+                                        <form action="/users/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            &nbsp;
+                                            <button type="submit" class="btn btn-danger me-1 mb-1"
+                                                onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
-                            
+
                         </tbody>
                     </table>
                 </div>

@@ -3,13 +3,14 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Payroll</h3>
+                    <h3>PAYE Tax Report</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class='breadcrumb-header'>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/reports" class="text-success">Reports</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Payroll: {{ $payroll->ref_no }}</li>
+                            <li class="breadcrumb-item active" aria-current="page">PAYE Report: {{ $payroll->ref_no }}
+                            </li>
                         </ol>
                     </nav>
                 </div>
@@ -39,11 +40,11 @@
                 <div class="card-body" id="payroll">
 
                     <div>
-                        <h3 class="mb-4">Ref No: {{ $payroll->ref_no }}</h3>
+                        <h3 class="mb-4">Payroll Ref No: {{ $payroll->ref_no }}</h3>
                         <h4 class="text-primary mb-4">Period:
                             {{ date_format(date_create($payroll->start_date), 'd/M/Y') }} -
                             {{ date_format(date_create($payroll->end_date), 'd/M/Y') }}</h4>
-                        <h4>Amount Due: GHc {{ number_format($total_paye_tax, 2) }}</h4>
+                        <h4>Tax Amount Due: GHc {{ number_format($total_paye_tax, 2) }}</h4>
                     </div>
 
 

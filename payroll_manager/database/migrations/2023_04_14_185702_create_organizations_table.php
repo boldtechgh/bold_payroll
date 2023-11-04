@@ -23,6 +23,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('organization_contact');
             $table->string('organization_email');
             $table->string('organization_website');
+            $table->string('company_logo')->nullable();
             $table->timestamps();
         });
     }
