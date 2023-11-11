@@ -235,10 +235,12 @@
                     </a>
                 </li>
             </ul>
-            <div class="mx-4 text-white h6 text-decoration-none">Powered By <a href="/register"
-                    class="text-decoration-none text-yellow">BoldtechGh</a>
-            </div>
+
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+
+        <div class="mx-4 text-white h6 text-decoration-none">Powered By <a href="https://boldtechgh.com"
+                class="text-decoration-none text-yellow">BoldtechGh</a>
+        </div>
     </div>
 </div>

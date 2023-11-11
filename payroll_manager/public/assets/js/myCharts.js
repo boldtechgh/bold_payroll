@@ -14,9 +14,6 @@ $(document).ready(function () {
 
         type: "GET",
         success: function (data) {
-            displayMessage("Welcome Back");
-            console.log("Data: ", data[0]);
-
             let departments = [];
 
             let employeeCount = data[1];
@@ -24,8 +21,6 @@ $(document).ready(function () {
             data[0].forEach((dept) => {
                 departments.push(dept.department_short_name);
             });
-
-            console.log("Dept: ", departments);
 
             new Chart(ctx, {
                 type: "bar",

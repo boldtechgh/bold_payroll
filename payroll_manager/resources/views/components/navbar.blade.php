@@ -6,13 +6,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
-            <li class="dropdown nav-icon">
+            {{-- <li class="dropdown nav-icon">
                 <a href="#" data-bs-toggle="dropdown" class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
                     <div class="d-lg-inline-block">
                         <i data-feather="bell"></i><span class="badge bg-info">2</span>
                     </div>
                 </a>
-                {{-- <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
                      <h6 class='py-2 px-4'>Notifications</h6>
                      <ul class="list-group rounded-none">
                          <li class="list-group-item border-0 align-items-start">
@@ -32,8 +32,8 @@
                            </div>
                          </li>
                      </ul>
-                 </div> --}}
-            </li>
+                 </div>
+            </li> --}}
             @auth
                 <li class="dropdown">
                     <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
