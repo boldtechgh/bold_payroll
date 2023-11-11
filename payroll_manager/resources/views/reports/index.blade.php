@@ -21,7 +21,6 @@
                                 <div class="report_options">
                                     <ul>
                                         <li><a href="/reports/payroll">Payroll Report</a> </li>
-                                        <li><a href="">Stats</a> </li>
                                     </ul>
                                 </div>
                             </div>
@@ -93,8 +92,8 @@
                                                 @endforeach
                                             </div>
                                         </li>
-                                        <li><a href="">Witholding Tax</a> </li>
-                                        <li><a href="">Settings</a> </li>
+                                        {{-- <li><a href="">Witholding Tax</a> </li>
+                                        <li><a href="">Settings</a> </li> --}}
                                     </ul>
                                 </div>
                             </div>

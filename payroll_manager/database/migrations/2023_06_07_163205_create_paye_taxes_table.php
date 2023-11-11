@@ -15,7 +15,7 @@ class CreatePayeTaxesTable extends Migration
     {
         Schema::create('paye_taxes', function (Blueprint $table) {
             $table->id();
-            $table->string('chargeable_income');
+            $table->float('chargeable_income');
             $table->float('rate');
             $table->float('payable');
             $table->float('cummulative_income');

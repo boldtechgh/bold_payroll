@@ -8,13 +8,13 @@
             <ul class="menu">
                 <li class="sidebar-item">
                     <a href="/" class='sidebar-link'>
-                        <i class="fa fa-home text-success"></i>
+                        <i class="fa fa-home text-yellow"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="fa fa-building text-success"></i>
+                        <i class="fa fa-building text-yellow"></i>
                         <span>Organization</span>
                     </a>
                     <ul class="submenu ">
@@ -55,7 +55,7 @@
 
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="fa fa-users text-success"></i>
+                        <i class="fa fa-users text-yellow"></i>
                         <span>Employees</span>
                     </a>
                     <ul class="submenu ">
@@ -120,7 +120,7 @@
              </li> --}}
                 <li class="sidebar-item has-sub">
                     <a href="#" class="sidebar-link">
-                        <i class="fa fa-building text-success"></i>
+                        <i class="fa fa-building text-yellow"></i>
                         <span>Allowances</span>
                     </a>
                     <ul class="submenu">
@@ -141,7 +141,7 @@
                 </li>
                 <li class="sidebar-item has-sub">
                     <a href="#" class="sidebar-link">
-                        <i class="fa fa-building text-success"></i>
+                        <i class="fa fa-building text-yellow"></i>
                         <span>Deductions</span>
                     </a>
                     <ul class="submenu">
@@ -165,7 +165,7 @@
                 </li>
                 <li class="sidebar-item has-sub">
                     <a href="#" class="sidebar-link">
-                        <i class="fa fa-money-bill text-success"></i>
+                        <i class="fa fa-money-bill text-yellow"></i>
                         <span>Payroll</span>
                     </a>
                     <ul class="submenu">
@@ -216,7 +216,7 @@
              </li> --}}
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="fa fa-user text-success"></i>
+                        <i class="fa fa-user text-yellow"></i>
                         <span>Users</span>
                     </a>
                     <ul class="submenu ">
@@ -230,13 +230,13 @@
                 </li>
                 <li class="sidebar-item ">
                     <a href="/reports" class='sidebar-link'>
-                        <i class="fa fa-chart-bar text-success"></i>
+                        <i class="fa fa-chart-bar text-yellow"></i>
                         <span>Reports</span>
                     </a>
                 </li>
             </ul>
-            <div>
-                <h2>Boom</h2>
+            <div class="mx-4 text-white h6 text-decoration-none">Powered By <a href="/register"
+                    class="text-decoration-none text-yellow">BoldtechGh</a>
             </div>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
