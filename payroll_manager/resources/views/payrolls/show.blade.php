@@ -12,6 +12,7 @@
                                     <li class="breadcrumb-item active" aria-current="page">Payroll: {{$payroll->ref_no}}</li>
                                 </ol>
                             </nav>
+                           
                         </div>
                     </div>
                 </div>
@@ -27,6 +28,14 @@
                                     @endif
                                 @endforeach
                                 <h4 class="text-primary">Period: {{date_format(date_create($payroll->start_date), "d/M/Y")}} - {{date_format(date_create($payroll->end_date), "d/M/Y")}}</h4>
+                                <div class="d-flex float-right mx-2 my-2">
+                                    <form action="{{ route('send.payroll.statements',['payrollId' => $payroll->ref_no]) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-envelope"></i> All
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                             <table class='table' id="table1">
                                 <thead>

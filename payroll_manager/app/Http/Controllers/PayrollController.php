@@ -110,7 +110,8 @@ class PayrollController extends Controller
                 $payrollData = [
                     'employee_id' => $payrollRef->employee_id,
                     'email' => $employee->email,
-                    'employee_name' => $employee->first_name,
+                    'first_name' => $employee->first_name,
+                    'last_name' => $employee->last_name,
                     'salary' => number_format($payrollItem->salary, 2),
                     'total_allowance' => number_format($payrollItem->total_allowance, 2),
                     'total_deduction' => number_format($payrollItem->total_deduction, 2),
@@ -126,6 +127,37 @@ class PayrollController extends Controller
     
         return redirect('/payrolls')->with('error', 'Invalid payroll or employee ID');
     }
+    public function sendAllPayrollStatement($payrollId)
+    {
+        $employees = Employee::all();
+
+        $payrollRef = Payroll::find($payrollId);
+        foreach ($employees as $employee) {
+        if ($employee && $payrollRef) {
+            $payrollItem = PayrollItems::where('payroll_id', $payrollRef->ref_no)
+            ->where('employee_id', $employee->id)
+                ->first();
+    
+            if ($payrollItem) {
+                $payrollData = [
+                    'employee_id' => $payrollRef->employee_id,
+                    'email' => $employee->email,
+                    'first_name' => $employee->first_name,
+                    'last_name' => $employee->last_name,
+                    'salary' => number_format($payrollItem->salary, 2),
+                    'total_allowance' => number_format($payrollItem->total_allowance, 2),
+                    'total_deduction' => number_format($payrollItem->total_deduction, 2),
+                    'paye_tax' => number_format($payrollItem->paye_tax, 2),
+                    'net_salary' => number_format($payrollItem->net_salary, 2),
+                ];
+    
+                Mail::send(new PayrollEmail($payrollData));
+    
+            }
+        }
+    }
+    return redirect()->back()->with('message', 'Payroll statement sent successfully!');
+}
     
     
     public function destroy($id)

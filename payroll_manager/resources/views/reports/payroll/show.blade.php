@@ -34,9 +34,12 @@
                             </path>
                         </svg>
                     </a>
-                    <a type="button" onclick="PrintDiv('payroll')" class="p-2" title="Print">
-                        <img src="{{ asset('assets/images/printer.png') }}" alt="">
-                    </a>
+                    <form action="{{ route('send.payroll.statements',['payrollId' => $payroll->ref_no]) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-envelope"></i> All
+                        </button>
+                    </form>
                     <a type="button" onclick="PrintDiv('payroll')" class="p-2" title="Print">
                         <img src="{{ asset('assets/images/printer.png') }}" alt="">
                     </a>

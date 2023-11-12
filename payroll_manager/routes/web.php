@@ -279,6 +279,9 @@ Route::get('/payroll_items/{payroll}', [PayrollItemsController::class, 'store'])
 //Show single payroll item
 Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class, 'show'])->middleware('auth');
 
+Route::get('/payroll_items/{payroll_item}/show', [PayrollItemsController::class, 'show'])->middleware('auth');
+Route::post('/send_all_payroll/{payrollId}', [PayrollController::class, 'sendAllPayrollStatement'])
+    ->name('send.payroll.statements');
 
 //Reports
 
