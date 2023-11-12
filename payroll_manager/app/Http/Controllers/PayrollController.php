@@ -120,7 +120,7 @@ class PayrollController extends Controller
     
                 Mail::send(new PayrollEmail($payrollData));
     
-                return redirect()->back()->with('success', 'Payroll statement sent successfully!');
+                return redirect()->back()->with('message', 'Payroll statement sent successfully!');
             }
         }
     
