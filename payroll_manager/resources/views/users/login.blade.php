@@ -44,6 +44,9 @@
 				myWindow.close();
 			  };
 			}
+			function SendMail(){
+				
+			}
 		  </script>
 	 </head>
 <body>

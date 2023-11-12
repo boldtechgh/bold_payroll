@@ -37,6 +37,9 @@
                     <a type="button" onclick="PrintDiv('payroll')" class="p-2" title="Print">
                         <img src="{{ asset('assets/images/printer.png') }}" alt="">
                     </a>
+                    <a type="button" onclick="PrintDiv('payroll')" class="p-2" title="Print">
+                        <img src="{{ asset('assets/images/printer.png') }}" alt="">
+                    </a>
                 </div>
                 <div class="card-body" id="payroll">
 
@@ -54,12 +57,13 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Employee ID</th>
-                                <th>Name</th>
+                                   <th>Name</th>
                                 <th>Basic Salary</th>
                                 <th>Total Allowance</th>
                                 <th>Total Deduction</th>
                                 <th>PAYE Tax</th>
                                 <th>Net Salary</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,6 +82,10 @@
                                     <td>GHc {{ number_format($payroll_item->total_deduction, 2) }}</td>
                                     <td>GHc {{ number_format($payroll_item->paye_tax, 2) }}</td>
                                     <td>GHc {{ number_format($payroll_item->net_salary, 2) }}</td>
+                                    <td><form action="{{ route('send.payroll', ['payrollId' => $payroll_item->payroll_id, 'employeeId' => $payroll_item->employee_id]) }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                                    </form></td>
                                 </tr>
                             @endforeach
 

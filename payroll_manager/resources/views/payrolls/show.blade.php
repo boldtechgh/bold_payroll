@@ -55,17 +55,22 @@
                                             <td>{{$payroll_item->net_salary}}</td>
                                            
                                             
-                                            <td class='d-flex'>
+                                            <td class=''>
                                                
-                                                    <a type="button" class="btn btn-info me-1 mb-1" href="/payroll_items/{{$payroll_item->id}}/show"><i class="fa fa-eye"></i></a>
-                                              
+                                                
+                                                <div class="d-flex me-3">
+                                                    <a type="button" class="btn btn-info me-2 mb-1" href="/payroll_items/{{$payroll_item->id}}/show"><i class="fa fa-eye"></i></a>
+                                                    <form action="{{ route('send.payroll', ['payrollId' => $payroll_item->payroll_id, 'employeeId' => $payroll_item->employee_id]) }}" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success me-2 mb-1"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                                                    </form>
                                                {{-- <a type="button" class="btn btn-info me-1 mb-1" href="/payrolls/{{$payroll->id}}/edit"><i class="fa fa-pen"></i></a>    --}}
                                             <form action="/payroll_items/{{$payroll->id}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                &nbsp;
-                                                <button type="submit" class="btn btn-danger me-1 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger me-2 mb-1" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')"><i class="fa fa-trash"></i></button>
                                             </form>
+                                                    </div>
                                             </td>
                                         </tr>
                                     @endforeach

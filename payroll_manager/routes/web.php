@@ -20,6 +20,9 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PayrollItemsController;
 use App\Http\Controllers\EmployeeAllowanceController;
 use App\Http\Controllers\EmployeeDeductionController;
+use App\Mail\PayrollEmail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 /*
 |-----------A---------------------------------------------------------------
@@ -284,6 +287,8 @@ Route::get('/reports', [ReportsController::class, 'index'])->middleware('auth');
 
 //all payrolls
 Route::get('/reports/payroll', [ReportsController::class, 'getPayrolls'])->middleware('auth');
+//all payrolls
+Route::post('/reports/{payrollId}/{employeeId}', [PayrollController::class, 'sendPayrollStatement'])->name('send.payroll');
 
 //Show single payroll report
 Route::get('/reports/payroll/{payroll_item}/show', [ReportsController::class, 'show'])->middleware('auth');
